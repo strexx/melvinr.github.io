@@ -8,23 +8,39 @@
  *
  *   Copyleft 2012, all wrongs reversed.
  */
+var myApp = myApp || {};
 
 (function () {
     "use strict";
+
     var updateMap, intervalCounter, interval, map, debugId, customDebugging, currentPositionMarker;
+    var POSITION_UPDATED = 'POSITION_UPDATED';
+    var currentPosition = currentPositionMarker = customDebugging = debugId = map = interval = intervalCounter = updateMap = false;
 
-    // Variable declaration
-    var myApp = {
-        positionUpdated: 'POSITION_UPDATED',
-        currentPosition: currentPositionMarker = customDebugging = debugId = map = interval = intervalCounter = updateMap = false,
-        ET: new EventTarget()
-    };
+    myApp.gps = {
+        init: function () {
+            var gpsAvailable = 'GPS_AVAILABLE',
+                gpsUnavailable = 'GPS_UNAVAILABLE',
+                ET = new EventTarget();
 
-    // Event functies - bron: http://www.nczonline.net/blog/2010/03/09/custom-events-in-javascript/ Copyright (c) 2010 Nicholas C. Zakas. All rights reserved. MIT License
-    // Gebruik: ET.addListener('foo', handleEvent); ET.fire('event_name'); ET.removeListener('foo', handleEvent);
+            debugMessage("Controleer of GPS beschikbaar is...");
+            ET.addListener(gpsAvailable, startInterval);
+            ET.addListener(gpsUnavailable, function () {
+                debugMessage('GPS is niet beschikbaar.')
+            });
+            (geo_position_js.init()) ? ET.fire(gpsAvailable): ET.fire(gpsUnavailable);
+        }
+    }
+
     function EventTarget() {
         this._listeners = {}
     }
+
+    // Variable declaration
+
+    // Event functies - bron: http://www.nczonline.net/blog/2010/03/09/custom-events-in-javascript/ Copyright (c) 2010 Nicholas C. Zakas. All rights reserved. MIT License
+    // Gebruik: ET.addListener('foo', handleEvent); ET.fire('event_name'); ET.removeListener('foo', handleEvent);
+
 
     EventTarget.prototype = {
         constructor: EventTarget,
@@ -228,4 +244,5 @@
     function debugMessage(message) {
         (customDebugging && debugId) ? document.getElementById(debugId).innerHTML: console.log(message);
     }
+    myApp.gps.init();
 })();
