@@ -5,9 +5,9 @@ In dit vak gaan we een single page web app ontwikkelen. Dit houdt in dat de gehe
 ##Voordelen
 - Een one page site is voor de gebruiker gemakkelijk te begrijpen.
 - Het is gemakkelijker om een site responsive te maken. Alle content staat op een pagina en je hoeft dus alleen deze content op het device aan te passen.
+- Doordat alle content op één lange pagina staat kan het voordelen voor je SEO opleveren.
 
 ##Nadelen
-- Het kan slecht zijn voor je SEO omdat het lastig is om je gehele content te optimaliseren voor een keyword.
 - De laadtijd van de applicatie kan achteruit gaan omdat het bestand groter is.
 - De gebruiker moet javascript aan hebben staan. Dit is niet bij iedereen het geval en je website zal dan niet werken.
 

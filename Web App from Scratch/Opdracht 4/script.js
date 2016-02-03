@@ -35,7 +35,7 @@ var myApp = myApp || {};
             });
             (geo_position_js.init()) ? ET.fire(gpsAvailable): ET.fire(gpsUnavailable);
         },
-        
+
         // Start een interval welke op basis van refreshRate de positie updated
         startInterval: function (event) {
             var refreshRate = 1000;
@@ -45,7 +45,7 @@ var myApp = myApp || {};
             interval = self.setInterval(updatePosition, refreshRate);
             myApp.ET.addListener(myApp.positionUpdated, checkLocations);
         },
-        
+
         // Vraag de huidige positie aan geo.js, stel een callback in voor het resultaat
         updatePosition: function () {
             intervalCounter++;
@@ -91,7 +91,7 @@ var myApp = myApp || {};
                 }
             }
         },
-        
+
         // Bereken het verchil in meters tussen twee punten
         calculateDistance: function (p1, p2) {
             var pos1 = new google.maps.LatLng(p1.coords.latitude, p1.coords.longitude);
@@ -114,7 +114,7 @@ var myApp = myApp || {};
      *      kaart in ge-rendered moet worden, <div> of <canvas>
      */
 
-    
+
     myApp.map = {
         generateMap: function (myOptions, canvasId) {
             var linear = "LINEAIR";
