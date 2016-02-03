@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    min-width: 22.5em;
+    width: 100%;
+    flex-direction: column;
+}
+
+header {
+    background: lightgrey;
+}
+
+nav {
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: inline-block;
+}
+
+svg {
+    width: 13px;
+    height: auto;
+}
+
+img {
+    position: relative;
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+}
+
+address {
+    align-items: flex-start;
+}

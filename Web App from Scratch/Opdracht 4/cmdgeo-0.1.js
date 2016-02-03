@@ -9,6 +9,8 @@
 *   Copyleft 2012, all wrongs reversed.
 */
 
+
+
 "use strict";
 
 // Variable declaration
