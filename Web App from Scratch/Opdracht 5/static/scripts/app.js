@@ -13,26 +13,27 @@ var myApp = myApp || {};
     };
 
     myApp.routes = {
-
         init: function () {
+            //when hash changes, execute toggle function
             window.addEventListener("hashchange",function() {myApp.sections.toggle(location.hash)}, false);
+            //Onload, execute toggle function, to immediately show the right section
             window.addEventListener("load",function () {myApp.sections.toggle(location.hash)}, false)
-        },
-        load: function () {
-
         }
     };
 
     myApp.sections = {
         toggle: function (route) {
             var sections = document.querySelectorAll(".togglesection");
-
+            
+            //loop through sections, and add inactive class to every section
             for (var i = 0; i < sections.length; i++) {
                 sections[i].classList.add("inactive");
                 
+                //If there is no hash, make every section visible, in case JS is disabled.
                 if (!route) {
                     sections[0].classList.remove("inactive");
                 } else {
+                    //make the right section, according to its hash, visible
                     document.querySelector(route).classList.remove('inactive');
                 }
             }
