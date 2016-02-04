@@ -4,6 +4,7 @@
 }
 
 body {
+    font-family: open sans;
     min-width: 22.5em;
 }
 
@@ -29,6 +30,11 @@ body > nav > ul > li{
     padding: 1em;
 }
 
+body > nav > ul > li:hover {
+    background: grey;
+    padding: 1em;
+}
+
 body > nav > ul > li > a{
     text-decoration: none;
     color: white;
@@ -39,6 +45,13 @@ body > main {
 }
 
 body > main > section {
-    background: lightgrey;
     margin-bottom: 1em;
+}
+
+body > main > section > h1 {
+    font-size: 1.5em
+}
+
+body > main > section > ul {
+    margin-left: 1em;
 }
