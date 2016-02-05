@@ -1,2 +1,3 @@
 # CSS-to-the-Rescue
-HTML voor de CSS to the Rescue opdracht
+Exercise 1 of CSS To The Rescue
+[Link to the site](https://melvinr.github.io/CSS%20To%20The%20Rescue/Week-1/)
