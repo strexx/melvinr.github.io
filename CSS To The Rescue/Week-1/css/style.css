@@ -66,6 +66,8 @@ body > header p {
     margin-bottom: 1em;
 }
 
+/*Responsive menu inspiration/source: http://treehouse-blog.s3.amazonaws.com/Respond-Menu/index.html*/
+
 body > header > nav {
     display: -webkit-box;
     display: -webkit-flex;
