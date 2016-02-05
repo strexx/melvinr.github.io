@@ -1,8 +1,15 @@
+@font-face {
+    font-family: Ampersand;
+    src: local('Baskerville-Italic'), local('GoudyOldStyleT-Italic'), local('Garamond-Italic'), local('Palatino-Italic');
+    unicode-range: U+26;
+}
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
 }
+
 
 body {
     font-family: Ampersand, "Roboto", Helvetica, Arial, sans-serif;
@@ -233,12 +240,6 @@ address > pre {
     margin: 1em;
     margin-left: 2em;
     color: white;
-}
-
-@font-face {
-    font-family: Ampersand;
-    src: local('Baskerville-Italic'), local('GoudyOldStyleT-Italic'), local('Garamond-Italic'), local('Palatino-Italic');
-    unicode-range: U+26;
 }
 
 @media screen and (min-width: 58.750em) {
