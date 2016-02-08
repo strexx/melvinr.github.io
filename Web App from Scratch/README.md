@@ -8,7 +8,7 @@ Het gebruik van JavaScript libraries en/of frameworks heeft voor- en nadelen. Be
 - Gemakkelijk en snel om iets te maken. Een library heeft veel dingen voor jou geschreven.
 - Veel documentatie. De meeste frameworks/libraries hebben een redelijk grote community, waardoor er veel mogelijke hulp en informatie online te vinden is. 
 - Het kan veel tijd besparen.
-- Het heeft een goede cross-browser compatibiliteit.
+- Het heeft een goede cross-browser compatibiliteit (dit geldt niet voor alle libraries).
 - Het gebruik van css selectoren, dit maakt het gemakkelijker om door de DOM te gaan.
 - De code is al getest om er zeker van te zijn dat het werkt. Veel fouten zijn er dus ook al uitgehaald.
 
@@ -16,6 +16,7 @@ Het gebruik van JavaScript libraries en/of frameworks heeft voor- en nadelen. Be
 - Als je een framework leert, leer je niet de taal zelf. jQuery is hier een goed voorbeeld van. Als je jQuery kent betekent het niet dat je javascript kan, omdat je de principes van javascript zelf niet leert in jQuery.
 - Het kan een limiet leggen op wat je kan doen. Een framework heeft altijd zijn eigen kern waar je omheen moet werken, en deze kan je niet aanpassen. Je bent dus gedwongen om binnen de mogelijkheden van het framework te werken.
 - Bestandsgroottes zijn vaak groter dan standaard javascript bestanden. Dit kan je website langzamer maken en meer gebruik maken van je bandbreedte.
+- Doordat het uit veel regels bestaat (neem jQuery als voorbeeld) wordt er meer rekenkracht van je apparaat gevraagd. Voor een smartphone leidt dit tot een snellere daling van je batterij. (credits naar Joost).
 
 ###Sources
 - http://1stwebdesigner.com/pros-cons-frameworks/
