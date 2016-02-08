@@ -26,6 +26,8 @@ var myApp = myApp || {};
             var sections = document.querySelectorAll(".togglesection");
             
             //loop through sections, and add inactive class to every section
+            
+//            Eventually use foreach instead of for
             for (var i = 0; i < sections.length; i++) {
                 sections[i].classList.add("inactive");
                 
