@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="">
+    <link rel="stylesheet" href="static/css/style.css">
     <title>Web App from Scratch</title>
 </head>
 
@@ -20,21 +21,17 @@
 
     <main>
         <section id="start" class="togglesection">
-            <h1>Start</h1>
+            <h1 id="headie">Start</h1>
         </section>
+        
         <section id="bestsellers" class="togglesection">
-            <!--
-            <ul id="booklist">
-                <li><a href="#hoi" class="name">hoi</a></li>
-                <li><a href="#doei" class="name">doei</a></li>
-            </ul>
--->
-            <div id="template">
-                <span data-bind="greeting">Welcome to the NY Times bestsellers list of fictional e-books</span>
-                <span data-bind="translation">I actually really like the list, myself, you know</span>
-            </div>
-
-
+                <div id="template">
+                    <h1 class="title"></h1>
+                    <div class="bestsellerList">
+                        <span class="author"></span>
+                        <span class="description"></span>
+                    </div>
+                </div>
         </section>
     </main>
 </body>
