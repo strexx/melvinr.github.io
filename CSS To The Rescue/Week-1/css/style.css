@@ -15,6 +15,7 @@ body {
     font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-weight: 200;
     line-height: 1.45;
+    font-size: 16px;
 }
 
 h1 {
@@ -24,7 +25,7 @@ h1 {
 }
 
 h2 {
-    font-family: "Roboto";
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-weight: 300;
 }
 
@@ -130,6 +131,12 @@ nav > ul > li {
 nav > ul  a {
     color: RGBA(45, 62, 79, 1);
     text-decoration: none;
+}
+
+li a:hover {
+    display: block;
+    background: #434343;
+    color: white;
 }
 
 svg {
