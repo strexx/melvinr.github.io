@@ -9,7 +9,6 @@ var myApp = myApp || {};
         //init is a method
         init: function () {
             myApp.routes.init();
-            myApp.page.bestSeller.init();
         }
     };
 
@@ -21,10 +20,12 @@ var myApp = myApp || {};
                 },
                 'bestsellers': function () {
                     myApp.routes.toggle(window.location.hash);
+                    myApp.api.init();
                 },
-                'bestsellers-detail/:detailTitle': function () {
+                'bestsellers-detail/:detailTitle': function (detailTitle) {
                     myApp.routes.toggle(window.location.hash.slice(0, 19));
-                    myApp.page.bestsellerDetail.init();
+                    //                    myApp.page.bestsellerDetail.init();
+                    myApp.api.init();
                 },
                 '*': function () {
                     myApp.routes.toggle(window.location.hash);
@@ -49,50 +50,53 @@ var myApp = myApp || {};
         }
     };
 
+    myApp.api = {
+        //        apiData: {},
+        init: function () {
+            aja()
+                .url('http://api.nytimes.com/svc/books/v2/lists/e-book-fiction.json?&api-key=b147374c9f7b0f2b25ddf9694dc28511:4:74324460')
+                .on('success', function (data) {
+                    var apiData = data;
+                    myApp.page.bestSeller.init(apiData);
+                    myApp.page.bestsellerDetail.init(apiData);
+                })
+                .go();
+        }
+    }
+
     myApp.page = {
         bestSeller: {
-            init: function () {
-                aja()
-                    .url('http://api.nytimes.com/svc/books/v2/lists/e-book-fiction.json?&api-key=b147374c9f7b0f2b25ddf9694dc28511:4:74324460')
-                    .on('success', function (data) {
-                        var apiData = data;
-                        console.log(apiData);
-                        var directives = {
-                            results: {
-                                book_details: {
-                                    book_image: {
-                                        src: function () {
-                                            return this.book_image
-                                        }
-                                    },
-                                    author: {
-                                        text: function () {
-                                            return "This book is written by " + this.author;
-                                        }
-                                    },
-                                    title: {
-                                        href: function () {
-                                            var titleNoSpace = this.title.replace(/\s+/g, '').toLowerCase();
-                                            var detailTitle = titleNoSpace;
-                                            return '#bestsellers-detail/' + detailTitle;
-                                        }
-                                    }
-
+            init: function (apiData) {
+                var directives = {
+                    results: {
+                        book_details: {
+                            book_image: {
+                                src: function () {
+                                    return this.book_image
+                                }
+                            },
+                            author: {
+                                text: function () {
+                                    return "This book is written by " + this.author;
+                                }
+                            },
+                            title: {
+                                href: function () {
+                                    var titleNoSpace = this.title.replace(/\s+/g, '').toLowerCase();
+                                    var detailTitle = titleNoSpace;
+                                    return '#bestsellers-detail/' + detailTitle;
                                 }
                             }
-                        };
 
-                        Transparency.render(document.querySelector('[data-route="bestsellers"]'), apiData, directives);
-                    })
-                    .go();
+                        }
+                    }
+                };
+                Transparency.render(document.querySelector('[data-route="bestsellers"]'), apiData, directives);
             }
         },
         bestsellerDetail: {
             init: function () {
-                var detailURL = window.location.toString(),
-                    split = detailURL.split("/"),
-                    detailTitle = split[split.length - 1];
-                console.log(detailTitle);
+
             }
         }
     }
