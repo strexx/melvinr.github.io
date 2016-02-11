@@ -10,7 +10,6 @@
     border: 0;
 }
 
-
 body {
     font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-weight: 200;
@@ -24,9 +23,13 @@ h1 {
     line-height: 1.45;
 }
 
-h2 {
+h2, h3 {
     font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-weight: 300;
+}
+
+a {
+   text-decoration: none;
 }
 
 body > header {
@@ -55,12 +58,13 @@ body > header > h1 {
     width: 85%;
 }
 
-body > header > figure {
+body > header figure {
     padding: 0.6em;
     -webkit-box-ordinal-group: 4;
     -webkit-order: 3;
     -ms-flex-order: 3;
     order: 3;
+    margin: auto;
 }
 
 body > header img {
@@ -80,6 +84,7 @@ body > header p {
     margin-bottom: 1em;
 }
 
+
 /*Responsive menu inspiration/source: http://treehouse-blog.s3.amazonaws.com/Respond-Menu/index.html*/
 
 body > header > nav {
@@ -98,26 +103,40 @@ body > header > nav {
     justify-content: center;
     width: 15%;
     background: #2d3e4f;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
 }
 
-header > nav > a {
+header > a {
     width: 2.5em;
     height: 2.5em;
     background: url(../images/menu-icon.png);
+    position: absolute;
 }
 
 header > nav > ul {
-    display: none;
+    display: block;
+    height: 0;
+    max-height: 20em;
+    overflow: hidden;
     position: absolute;
     left: 0;
-    top: 3.7em;
+    top: 3em;
+    /*    margin-top: 3em;*/
     background: RGBA(255, 255, 255, 1);
     box-shadow: 0 4px 4px -2px RGBA(67, 67, 67, 0.5);
 }
 
-header > nav:hover ul,
-header > nav:active ul {
-    display: block;
+#main-nav:target {
+    z-index: 100;
+    height: 100%;
+}
+
+.closeme{
+    border-bottom: 1px solid red;
+    background: transparent;
 }
 
 nav > ul > li {
@@ -128,9 +147,8 @@ nav > ul > li {
     padding: 0.3em;
 }
 
-nav > ul  a {
+nav > ul a {
     color: RGBA(45, 62, 79, 1);
-    text-decoration: none;
 }
 
 li a:hover {
@@ -167,7 +185,7 @@ main > article {
     margin-bottom: 2em;
 }
 
-main > article > header {
+main > article  header  h2 {
     border-bottom: 1px solid red;
     margin-bottom: 1em;
 }
@@ -181,6 +199,80 @@ article > header > h1 {
 header > h1 > span {
     font-size: 0.6em;
     color: #5e85ad;
+}
+
+main > article section {
+    margin-top: 1em;
+}
+
+/*Create overlay*/
+#my-friends {
+    display: none;
+    padding: 0;
+    overflow: hidden;
+    /*    background-color: rgba(0, 0, 0, 0.4);*/
+}
+
+#my-friends:target {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin: 22vh 12vw;
+    background: #fff;
+    overflow: hidden;
+    padding: 1em;
+    width: 100%;
+    height: 60vw;
+    max-height: 35em;
+    max-width: 69vw;
+    z-index: 100;
+    box-shadow: 0 0 0 50vmax rgba(0, 0, 0, .8);
+}
+
+#my-friends figure {
+    max-width: -webkit-min-content;
+    max-width: -moz-min-content;
+    max-width: min-content;
+    margin: auto;
+    height: auto;
+}
+
+#my-friends figure > img {
+    margin: auto;
+    display: inline-block;
+    width: 50vw;
+    max-width: 30em;
+}
+
+#my-friends form {
+    -webkit-align-self: flex-end;
+    ;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+    width: 20%;
+}
+
+#my-friends  h1 {
+    font-size: 1em;
+    width: 70%;
+    
+}
+
+#my-friends > form > input {
+   font-size: 1.2em;
 }
 
 form > fieldset > legend {
@@ -202,8 +294,18 @@ form > fieldset > button {
     margin-top: 1em;
 }
 
+a[role=button] {
+    background: #3e5770;
+    color: white;
+    padding: 0.5em;
+    display: block;
+    width: 20%;
+    text-align: center;
+}
+
 main > article img {
     width: 100%;
+    min-width: 10em;
     max-width: 30em;
 }
 
@@ -223,27 +325,44 @@ footer {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-justify-content: space-around;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
+    -webkit-box-pack:center;
+    -webkit-justify-content:center;
+    -ms-flex-pack:center;
+    justify-content:center;
     background: #434343;
 }
 
 footer ul {
     list-style-type: none;
     box-sizing: border-box;
+    width: 30%;
+}
+
+.first {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+    max-width: 10em;
+}
+
+.second {
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+    -ms-flex-order: 3;
+    order: 2;
+    max-width: 10em;
 }
 
 footer ul a {
     color: white;
-    text-decoration: none;
 }
 
 address {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
     -ms-flex-order: 1;
-    order: -1;
+    order: 1;
     width: 100%;
     background: grey;
 }
@@ -258,29 +377,40 @@ address > pre {
 @media screen and (min-width: 58.750em) {
     body > header > h1 {
         width: 100%;
-        border-bottom: 0.1em solid RGBA(255,255,255,0.3);
+        border-bottom: 0.1em solid RGBA(255, 255, 255, 0.3);
     }
-    
     body > header > nav {
         width: 100%;
         height: 3em;
     }
-    header > nav > a {
+    header > a {
         display: none;
     }
     header > nav > ul {
         display: inline-block;
         background-color: inherit;
         padding-left: 1.2em;
+        overflow: visible;
     }
     nav > ul > li {
         display: inline;
     }
-    
-    nav > ul a {
+    li a:hover {
+        display: inline;
+        background: #434343;
         color: white;
     }
+    #closemenu {
+        display: none;
+    }
+    
+    nav > ul a{
+        color: white;
+    }
+    
     ul a svg {
         fill: white
     }
-};
+}
+
+;
