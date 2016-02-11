@@ -14,24 +14,31 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#start">Start</a></li>
-            <li><a href="#bestsellers">NY Times Best-Sellers</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#bestsellers">NY Time Bestseller List</a></li>
         </ul>
     </nav>
 
     <main>
-        <section id="start" class="togglesection">
-            <h1 id="headie">Start</h1>
+        <section id="home" data-route="home" class="togglesection">
+            <h1>Start</h1>
         </section>
-        
-        <section id="bestsellers" class="togglesection">
-                <div id="template">
-                    <h1 class="title"></h1>
-                    <div class="bestsellerList">
-                        <span class="author"></span>
-                        <span class="description"></span>
-                    </div>
+        <section id="bestsellers" data-route="bestsellers" class="togglesection">
+            <div data-bind="results">
+                <div data-bind="book_details">
+                    <h2><a data-bind="title" href="">Je Javascript staat uit loser</a></h2>
+                    <p data-bind="author"></p>
+                    <img src="" data-bind="book_image" />
                 </div>
+            </div>
+        </section>
+        <section id="bestsellers-detail" href="" data-route="bestsellers-detail" class="togglesection">
+            <h1>Hoi</h1>
+            <div data-bind="results">
+                <div data-bind="book_details">
+                    <p data-bind="author"></p>
+                </div>
+            </div>
         </section>
     </main>
 </body>
@@ -39,6 +46,7 @@
 <script src="static/lib/aja.min.js"></script>
 <script src="static/lib/routie.min.js"></script>
 <script src="static/lib/transparency.min.js"></script>
-<script src="static/js/app.js"></script>
+<script src="static/lib/underscore.min.js"></script>
+<script src="static/scripts/app.js"></script>
 
 </html>

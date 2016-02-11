@@ -55,17 +55,3 @@ body > main > section > h1 {
 body > main > section > ul {
     margin-left: 1em;
 }
-
-#template {
-     padding:0.8em;
-}
-
-.author, .description {
-    display: block;
-}
-
-.author {
-    font-size: 1.3em;
-    margin-top: 1em;
-    border-bottom: 1px solid black;
-}
