@@ -5,6 +5,6 @@ Exercise 1 of CSS To The Rescue
 
 Responsive menu inspiration/source: http://treehouse-blog.s3.amazonaws.com/Respond-Menu/index.html
 
-[Link to live exercise 2]([CSS To The Rescue, exercise 2](http://melvinr.github.io/CSS%20To%20The%20Rescue/Week-2/index.html))
+[Link to live exercise 2](http://melvinr.github.io/CSS%20To%20The%20Rescue/Week-2/index.html)
 
 
