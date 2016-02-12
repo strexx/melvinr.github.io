@@ -299,7 +299,7 @@ section figure {
     left: 0;
     top: 0;
     margin: 22vh 12vw;
-    background: #fff;
+    background: #3e5770;
     overflow: hidden;
     padding: 1em;
     width: 100%;
@@ -331,9 +331,19 @@ section figure {
     width: 20%;
 }
 
+#my-friends form input {
+    color: white;
+}
+
+figcaption {
+    color: white;
+}
+
 #my-friends  h1 {
-    font-size: 1em;
-    width: 70%;
+/*    font-size: 2em;*/
+    font-size: 1.3em;
+    width: 100%;
+    color: white;
     
 }
 
