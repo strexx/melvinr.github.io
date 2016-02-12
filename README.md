@@ -4,7 +4,7 @@ I will use this repository to post projects I created during my minor.
 ## CSS To The Rescue
 [CSS To The Rescue, exercise 1](https://github.com/melvinr/melvinr.github.io/tree/master/CSS%20To%20The%20Rescue/Week-1)
 
-[CSS To The Rescue, exercise 2](http://melvinr.github.io/CSS%20To%20The%20Rescue/Week-2/index.html)
+[CSS To The Rescue, exercise 2](https://github.com/melvinr/melvinr.github.io/tree/master/CSS%20To%20The%20Rescue/Week-2)
 
 ## Web App From Scratch
 
