@@ -26,17 +26,17 @@
         <section id="bestsellers" data-route="bestsellers" class="togglesection">
             <div data-bind="results">
                 <div data-bind="book_details">
-                    <h2><a data-bind="title" href="">Je Javascript staat uit loser</a></h2>
+                    <h2><a data-bind="id" href="">Je Javascript staat uit loser</a></h2>
                     <p data-bind="author"></p>
                     <img src="" data-bind="book_image" />
                 </div>
             </div>
         </section>
-        <section id="bestsellers-detail" href="" data-route="bestsellers-detail" class="togglesection">
-            <h1>Hoi</h1>
+        <section id="bestsellersdetail" href="" data-route="bestsellersdetail" class="togglesection">
             <div data-bind="results">
                 <div data-bind="book_details">
-                    <p data-bind="author"></p>
+                    <h2 data-bind="title"></h2>
+                    <p data-bind="description"></p>
                 </div>
             </div>
         </section>

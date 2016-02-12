@@ -1,5 +1,7 @@
 var myApp = myApp || {};
 
+//Thanks to Matthias Dolstra and Senny Kalidien for helping and working with me on this project
+
 //IIFE, this is a self invoking function
 (function () {
     "use strict";
@@ -8,24 +10,46 @@ var myApp = myApp || {};
     myApp.app = {
         //init is a method
         init: function () {
-            myApp.routes.init();
+            myApp.api.init();
         }
     };
 
-    myApp.routes = {
+    myApp.api = {
         init: function () {
+            aja()
+                .url('http://api.nytimes.com/svc/books/v2/lists/e-book-fiction.json?&api-key=b147374c9f7b0f2b25ddf9694dc28511:4:74324460')
+                .on('success', function (data) {
+                    var newdata = _.map(data.results, function (data, iteratee) {
+                        data.book_details[0].id = _.uniqueId('article_');
+
+                        return data;
+                    });
+
+                    newdata.forEach(function (current, index) {
+                        //                        console.log(index)
+                        //                        console.log(current.book_details)
+                    })
+                    myApp.routes.init(data);
+
+                })
+                .go();
+        }
+    }
+
+    myApp.routes = {
+        init: function (data) {
             routie({
                 'home': function () {
                     myApp.routes.toggle(window.location.hash);
                 },
                 'bestsellers': function () {
                     myApp.routes.toggle(window.location.hash);
-                    myApp.api.init();
+                    myApp.page.bestSeller.init(data);
                 },
-                'bestsellers-detail/:detailTitle': function (detailTitle) {
-                    myApp.routes.toggle(window.location.hash.slice(0, 19));
+                'bestsellersdetail/:id': function (id) {
+                    myApp.routes.toggle(window.location.hash.slice(0, 18));
+                    myApp.page.bestsellerDetail.init(data, id);
                     //                    myApp.page.bestsellerDetail.init();
-                    myApp.api.init();
                 },
                 '*': function () {
                     myApp.routes.toggle(window.location.hash);
@@ -43,6 +67,7 @@ var myApp = myApp || {};
                 if (!route) {
                     sections[0].classList.remove("inactive");
                 } else {
+
                     //make the right section, according to its hash, visible
                     document.querySelector(route).classList.remove('inactive');
                 }
@@ -50,23 +75,9 @@ var myApp = myApp || {};
         }
     };
 
-    myApp.api = {
-        //        apiData: {},
-        init: function () {
-            aja()
-                .url('http://api.nytimes.com/svc/books/v2/lists/e-book-fiction.json?&api-key=b147374c9f7b0f2b25ddf9694dc28511:4:74324460')
-                .on('success', function (data) {
-                    var apiData = data;
-                    myApp.page.bestSeller.init(apiData);
-                    myApp.page.bestsellerDetail.init(apiData);
-                })
-                .go();
-        }
-    }
-
     myApp.page = {
         bestSeller: {
-            init: function (apiData) {
+            init: function (data) {
                 var directives = {
                     results: {
                         book_details: {
@@ -80,22 +91,47 @@ var myApp = myApp || {};
                                     return "This book is written by " + this.author;
                                 }
                             },
-                            title: {
+                            id: {
+                                text: function () {
+                                    return this.title;
+                                },
                                 href: function () {
-                                    var titleNoSpace = this.title.replace(/\s+/g, '').toLowerCase();
-                                    var detailTitle = titleNoSpace;
-                                    return '#bestsellers-detail/' + detailTitle;
+                                    return "#bestsellersdetail/" + this.id;
+                                    console.log(data.results[0].book_details[0])
                                 }
                             }
-
-                        }
+                        },
                     }
                 };
-                Transparency.render(document.querySelector('[data-route="bestsellers"]'), apiData, directives);
+                Transparency.render(document.querySelector('[data-route="bestsellers"]'), data, directives);
             }
         },
         bestsellerDetail: {
-            init: function () {
+            init: function (data, id) {
+                data.results.forEach(function (currentValue, index) {
+                    //                    console.log(currentValue.book_details[0].id)
+                    if (currentValue.book_details[0].id === id) {
+                        console.log(currentValue)
+
+                        var directives = {
+                            results: {
+                                book_details: {
+                                    description: {
+                                        src: function () {
+                                            return this.description
+                                        }
+                                    },
+                                    title: {
+                                        text: function() {
+                                            return this.title
+                                        }
+                                    }
+                                }
+                            }
+                        };
+                        Transparency.render(document.querySelector('[data-route="bestsellersdetail"]'), currentValue, directives);
+                    }
+                })
 
             }
         }
