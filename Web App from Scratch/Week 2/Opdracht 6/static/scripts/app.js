@@ -19,16 +19,13 @@ var myApp = myApp || {};
             aja()
                 .url('http://api.nytimes.com/svc/books/v2/lists/e-book-fiction.json?&api-key=b147374c9f7b0f2b25ddf9694dc28511:4:74324460')
                 .on('success', function (data) {
+                    //map the data from the array and add a uniqueid to every result's book_details to be able to get and display the right data with the right title
                     var newdata = _.map(data.results, function (data, iteratee) {
-                        data.book_details[0].id = _.uniqueId('article_');
+                        data.book_details[0].id = _.uniqueId('book_');
 
                         return data;
                     });
 
-                    newdata.forEach(function (current, index) {
-                        //                        console.log(index)
-                        //                        console.log(current.book_details)
-                    })
                     myApp.routes.init(data);
 
                 })
@@ -47,6 +44,7 @@ var myApp = myApp || {};
                     myApp.page.bestSeller.init(data);
                 },
                 'bestsellersdetail/:id': function (id) {
+                    //slice is to delete bestsellersdetail/ from the hash, so the queryselector will work
                     myApp.routes.toggle(window.location.hash.slice(0, 18));
                     myApp.page.bestsellerDetail.init(data, id);
                     //                    myApp.page.bestsellerDetail.init();
@@ -78,6 +76,7 @@ var myApp = myApp || {};
     myApp.page = {
         bestSeller: {
             init: function (data) {
+                //define directives to bind data to the HTML
                 var directives = {
                     results: {
                         book_details: {
@@ -96,6 +95,7 @@ var myApp = myApp || {};
                                     return this.title;
                                 },
                                 href: function () {
+                                    //pass the correct hashlink to to the href, so the detailpages have the correct links
                                     return "#bestsellersdetail/" + this.id;
                                     console.log(data.results[0].book_details[0])
                                 }
@@ -103,16 +103,17 @@ var myApp = myApp || {};
                         },
                     }
                 };
+                //Bind and render the data to the right HTML section
                 Transparency.render(document.querySelector('[data-route="bestsellers"]'), data, directives);
             }
         },
+        //Book detail page
         bestsellerDetail: {
             init: function (data, id) {
+                
                 data.results.forEach(function (currentValue, index) {
-                    //                    console.log(currentValue.book_details[0].id)
+                    //For each result in the JSON, check if the id matches the current id in the hash, if this is the case, get the right data and bind these to the correct section and HTML elements
                     if (currentValue.book_details[0].id === id) {
-                        console.log(currentValue)
-
                         var directives = {
                             results: {
                                 book_details: {
@@ -122,7 +123,7 @@ var myApp = myApp || {};
                                         }
                                     },
                                     title: {
-                                        text: function() {
+                                        text: function () {
                                             return this.title
                                         }
                                     }
