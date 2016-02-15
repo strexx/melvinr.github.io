@@ -13,10 +13,11 @@
 <body>
     <!-- De header, met een navigatie -->
 
-    <header>
-        <h1>Rescue & Secrets</h1>
-        <a href="#main-nav" id="menu-icon"></a>
-
+    <header role="banner">
+        <div id="top-wrapper">
+            <a href="#main-nav" id="menu-icon"></a>
+            <h1>Rescue & Secrets</h1>
+        </div>
         <nav>
             <ul id="main-nav" role="navigation">
                 <li><a href="#" id="closemenu" class="closeme">Close Menu</a></li>
@@ -62,10 +63,12 @@
                 <li><a href="#">Another list item</a></li>
             </ul>
         </nav>
-        <figure>
-            <img src="images/profile-picture-thumb.jpg" alt="Profile picture of Monica Krajeck">
-        </figure>
-        <p>Welcome back, <em>Mona</em></p>
+        <div id="head-wrapper">
+            <figure>
+                <img src="images/profile-picture-thumb.jpg" alt="Profile picture of Monica Krajeck">
+            </figure>
+            <p>Welcome back, <em>Mona</em></p>
+        </div>
     </header>
 
     <!-- De main content begint hier -->
@@ -91,12 +94,39 @@
             <h1>Your current friends</h1>
             <figure>
                 <img src="images/profile-picture-05.jpg">
-                <figcaption>Ella Fitzgerald</figcaption>
+                <figcaption>Ella Jane Fitzgerald (April 25, 1917 – June 15, 1996) was an American jazz singer often referred to as the First Lady of Song, Queen of Jazz and Lady Ella. Source: Wikipedia.
+
+                </figcaption>
             </figure>
         </article>
 
 
         <!-- Deze code mag je in week twee uit de comments halen -->
+        <article id="password">
+            <header>
+                <h2>Your Password</h2>
+            </header>
+
+            <form action="" method="post">
+                <fieldset>
+                    <legend>Change your password:</legend>
+                    <label>
+                        <span>Current password</span>
+                        <input id="current-password" type="password" required>
+                    </label>
+                    <label>
+                        <span>New password</span>
+                        <input id="current-password" type="password" required>
+                    </label>
+                    <label>
+                        <span>Verify new password</span>
+                        <input id="current-password" type="password" required>
+                    </label>
+                    <button role="button" type="submit">Yep, change it!</button>
+                </fieldset>
+            </form>
+        </article>
+
         <article id="profile-picture">
             <div>
                 <header>
@@ -143,30 +173,6 @@
         </article>
 
 
-        <article id="password">
-            <header>
-                <h2>Your Password</h2>
-            </header>
-
-            <form action="" method="post">
-                <fieldset>
-                    <legend>Change your password:</legend>
-                    <label>
-                        <span>Current password</span>
-                        <input id="current-password" type="password" required>
-                    </label>
-                    <label>
-                        <span>New password</span>
-                        <input id="current-password" type="password" required>
-                    </label>
-                    <label>
-                        <span>Verify new password</span>
-                        <input id="current-password" type="password" required>
-                    </label>
-                    <button role="button" type="submit">Yep, change it!</button>
-                </fieldset>
-            </form>
-        </article>
 
         <article id="photo-albums">
             <header>
