@@ -1,0 +1,1 @@
+[Link to live site](http://melvinr.github.io/Web%20App%20from%20Scratch/Week%202/Opdracht%206/index.html)

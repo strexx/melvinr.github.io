@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html lang="nl">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Web App from Scratch</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#bestsellers">NY Time Bestseller List</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="loader">
+            <!--Loader is created from http://cssload.net-->
+            <div class="bubblingG">
+                <span id="bubblingG_1">
+	</span>
+                <span id="bubblingG_2">
+	</span>
+                <span id="bubblingG_3">
+	</span>
+            </div>
+        </section>
+        <section id="bestsellers" data-route="bestsellers" class="togglesection">
+            <div data-bind="results">
+                <div data-bind="book_details">
+                    <h2><a data-bind="id" href=""></a></h2>
+                    <p data-bind="author"></p>
+                    <img src="" data-bind="book_image" />
+                </div>
+            </div>
+        </section>
+        <section id="bestsellersdetail" href="" data-route="bestsellersdetail" class="togglesection">
+            <div data-bind="results">
+                <div data-bind="book_details">
+                    <h2 data-bind="title"></h2>
+                    <p data-bind="description"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+<script src="static/lib/aja.min.js"></script>
+<script src="static/lib/routie.min.js"></script>
+<script src="static/lib/transparency.min.js"></script>
+<script src="static/lib/underscore.min.js"></script>
+<script src="static/scripts/app.js"></script>
+
+</html>
