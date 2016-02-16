@@ -28,33 +28,31 @@ body > nav > ul {
 
 body > nav > ul > li {
     display: inline-block;
-/*    padding: 1em;*/
+    /*    padding: 1em;*/
 }
 
 body > nav > ul a {
-/*
+    /*
     text-decoration: none;
     color: white;
     padding: 1em;
 */
-    
-    width: 120px; 
+    width: 120px;
     border-left: 5px solid #666;
-	float: left;
-	cursor: pointer;
-	list-style-type: none;
+    float: left;
+    cursor: pointer;
+    list-style-type: none;
     text-decoration: none;
-	color: white;
-	padding: 10px 50px 10px 15px;
-	
-	-webkit-transition: all 0.3s ease-in;
-	-moz-transition: all 0.3s ease-in;
-	-o-transition: all 0.3s ease-in;
+    color: white;
+    padding: 10px 50px 10px 15px;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
 }
 
 body > nav > ul a:hover {
     background: #fff;
-	border-left: 5px solid #000;
+    border-left: 5px solid #000;
     color: black;
 }
 
@@ -85,23 +83,27 @@ body > main > section {
 }
 
 @-webkit-keyframes slide {
-    100% { left: 1em; }
+    100% {
+        left: 1em;
+    }
 }
 
 @keyframes slide {
-    100% { left: 1em; }
+    100% {
+        left: 1em;
+    }
 }
 
 body > main > section div {
     margin-top: 2em;
-    
 }
 
-body > main > section img + #author {
+body > main > section h2 + #author {
     height: 0px;
     width: 21em;
     opacity: 0;
-    -webkit-transition: width 0.8s, height 1s, -webkit-transform 1s, opacity .5s ease-in; /* Safari */
+    -webkit-transition: width 0.8s, height 1s, -webkit-transform 1s, opacity .5s ease-in;
+    /* Safari */
     transition: width 0.8s, height 1s, -webkit-transform 1s, opacity .5s ease-in;
     -webkit-transition: width 0.8s, height 1s, opacity .5s ease-in, -webkit-transform 1s;
     transition: width 0.8s, height 1s, opacity .5s ease-in, -webkit-transform 1s;
@@ -110,12 +112,9 @@ body > main > section img + #author {
     transition: width 0.8s, height 1s, transform 1s, -webkit-transform 1s, opacity .5s ease-in;
 }
 
-
-body > main > section img:hover + #author,
-body > main > section img:active + #author
-
-{
-    height: 10px;
+body > main > section h2:hover + #author,
+body > main > section h2:active + #author {
+    height: 40px;
     opacity: 1;
 }
 
@@ -129,90 +128,86 @@ body > main > section > ul {
 }
 
 
-
 /*Loader*/
+
 .bubblingG {
-	text-align: center;
-	width:78px;
-	height:49px;
-	margin: auto;
+    text-align: center;
+    width: 78px;
+    height: 49px;
+    margin: auto;
 }
 
 .bubblingG span {
-	display: inline-block;
-	vertical-align: middle;
-	width: 10px;
-	height: 10px;
-	margin: 24px auto;
-	background: rgb(0,0,0);
-	border-radius: 49px;
-		-o-border-radius: 49px;
-		-ms-border-radius: 49px;
-		-webkit-border-radius: 49px;
-		-moz-border-radius: 49px;
-	animation: bubblingG 1.5s infinite alternate;
-		-o-animation: bubblingG 1.5s infinite alternate;
-		-ms-animation: bubblingG 1.5s infinite alternate;
-		-webkit-animation: bubblingG 1.5s infinite alternate;
-		-moz-animation: bubblingG 1.5s infinite alternate;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    margin: 24px auto;
+    background: rgb(0, 0, 0);
+    border-radius: 49px;
+    -o-border-radius: 49px;
+    -ms-border-radius: 49px;
+    -webkit-border-radius: 49px;
+    -moz-border-radius: 49px;
+    animation: bubblingG 1.5s infinite alternate;
+    -o-animation: bubblingG 1.5s infinite alternate;
+    -ms-animation: bubblingG 1.5s infinite alternate;
+    -webkit-animation: bubblingG 1.5s infinite alternate;
+    -moz-animation: bubblingG 1.5s infinite alternate;
 }
 
 #bubblingG_1 {
-	animation-delay: 0s;
-		-o-animation-delay: 0s;
-		-ms-animation-delay: 0s;
-		-webkit-animation-delay: 0s;
-		-moz-animation-delay: 0s;
+    animation-delay: 0s;
+    -o-animation-delay: 0s;
+    -ms-animation-delay: 0s;
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
 }
 
 #bubblingG_2 {
-	animation-delay: 0.45s;
-		-o-animation-delay: 0.45s;
-		-ms-animation-delay: 0.45s;
-		-webkit-animation-delay: 0.45s;
-		-moz-animation-delay: 0.45s;
+    animation-delay: 0.45s;
+    -o-animation-delay: 0.45s;
+    -ms-animation-delay: 0.45s;
+    -webkit-animation-delay: 0.45s;
+    -moz-animation-delay: 0.45s;
 }
 
 #bubblingG_3 {
-	animation-delay: 0.9s;
-		-o-animation-delay: 0.9s;
-		-ms-animation-delay: 0.9s;
-		-webkit-animation-delay: 0.9s;
-		-moz-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+    -o-animation-delay: 0.9s;
+    -ms-animation-delay: 0.9s;
+    -webkit-animation-delay: 0.9s;
+    -moz-animation-delay: 0.9s;
 }
 
-
-
 @keyframes bubblingG {
-	0% {
-		width: 10px;
-		height: 10px;
-		background-color:rgb(0,0,0);
-		-webkit-transform: translateY(0);
-		transform: translateY(0);
-	}
-
-	100% {
-		width: 23px;
-		height: 23px;
-		background-color:rgb(255,255,255);
-		-webkit-transform: translateY(-20px);
-		transform: translateY(-20px);
-	}
+    0% {
+        width: 10px;
+        height: 10px;
+        background-color: rgb(0, 0, 0);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        width: 23px;
+        height: 23px;
+        background-color: rgb(255, 255, 255);
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+    }
 }
 
 @-webkit-keyframes bubblingG {
-	0% {
-		width: 10px;
-		height: 10px;
-		background-color:rgb(0,0,0);
-		-webkit-transform: translateY(0);
-	}
-
-	100% {
-		width: 23px;
-		height: 23px;
-		background-color:rgb(255,255,255);
-		-webkit-transform: translateY(-20px);
-	}
+    0% {
+        width: 10px;
+        height: 10px;
+        background-color: rgb(0, 0, 0);
+        -webkit-transform: translateY(0);
+    }
+    100% {
+        width: 23px;
+        height: 23px;
+        background-color: rgb(255, 255, 255);
+        -webkit-transform: translateY(-20px);
+    }
 }
