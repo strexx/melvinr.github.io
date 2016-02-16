@@ -19,6 +19,7 @@ var myApp = myApp || {};
             aja()
                 .url('http://api.nytimes.com/svc/books/v2/lists/e-book-fiction.json?&api-key=b147374c9f7b0f2b25ddf9694dc28511:4:74324460')
                 .on('success', function (data) {
+                console.log(data);
                     //map the data from the array and add a uniqueid to every result's book_details to be able to get and display the right data with the right title
                     var newdata = _.map(data.results, function (data, iteratee) {
                         data.book_details[0].id = _.uniqueId('book_');
@@ -82,7 +83,7 @@ var myApp = myApp || {};
                         book_details: {
                             book_image: {
                                 src: function () {
-                                    return this.book_image
+                                    return this.book_image;
                                 }
                             },
                             author: {
@@ -119,12 +120,12 @@ var myApp = myApp || {};
                                 book_details: {
                                     description: {
                                         src: function () {
-                                            return this.description
+                                            return this.description;
                                         }
                                     },
                                     title: {
                                         text: function () {
-                                            return this.title
+                                            return this.title;
                                         }
                                     }
                                 }

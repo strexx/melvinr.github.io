@@ -27,17 +27,34 @@ body > nav > ul {
 
 body > nav > ul > li {
     display: inline-block;
-    padding: 1em;
+/*    padding: 1em;*/
 }
 
-body > nav > ul > li > a {
+body > nav > ul a {
+/*
     text-decoration: none;
     color: white;
     padding: 1em;
+*/
+    
+    width: 120px; 
+    border-left: 5px solid #666;
+	float: left;
+	cursor: pointer;
+	list-style-type: none;
+    text-decoration: none;
+	color: white;
+	padding: 10px 50px 10px 15px;
+	
+	-webkit-transition: all 0.3s ease-in;
+	-moz-transition: all 0.3s ease-in;
+	-o-transition: all 0.3s ease-in;
 }
 
 body > nav > ul a:hover {
-    background: grey;
+    background: #fff;
+	border-left: 5px solid #000;
+    color: black;
 }
 
 body > nav > ul a:active {
@@ -62,8 +79,8 @@ body > main > section {
     -webkit-animation-delay: 1s;
     -webkit-animation: slide 0.5s forwards;
     animation: slide 0.5s forwards;
-    -webkit-animation-delay: 1s;
-    animation-delay: 1s;
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
 }
 
 @-webkit-keyframes slide {
@@ -74,16 +91,41 @@ body > main > section {
     100% { left: 1em; }
 }
 
+body > main > section div {
+    margin-top: 2em;
+    
+}
+
+body > main > section h2 + #author {
+    height: 0px;
+    width: 21em;
+    opacity: 0;
+    -webkit-transition: width 0.8s, height 1s, -webkit-transform 1s, opacity .5s ease-in; /* Safari */
+    transition: width 0.8s, height 1s, -webkit-transform 1s, opacity .5s ease-in;
+    -webkit-transition: width 0.8s, height 1s, opacity .5s ease-in, -webkit-transform 1s;
+    transition: width 0.8s, height 1s, opacity .5s ease-in, -webkit-transform 1s;
+    transition: width 0.8s, height 1s, transform 1s, opacity .5s ease-in;
+    transition: width 0.8s, height 1s, transform 1s, opacity .5s ease-in, -webkit-transform 1s;
+    transition: width 0.8s, height 1s, transform 1s, -webkit-transform 1s, opacity .5s ease-in;
+}
 
 
+body > main > section h2:hover + #author{
+    height: 40px;
+    opacity: 1;
+}
 
-body > main > section > h1 {
-    font-size: 1.5em
+body > main > section img {
+/*
+    width: 300px;
+    height: 500px;
+*/
 }
 
 body > main > section > ul {
     margin-left: 1em;
 }
+
 
 
 /*Loader*/
