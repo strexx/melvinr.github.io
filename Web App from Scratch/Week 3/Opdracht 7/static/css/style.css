@@ -97,7 +97,7 @@ body > main > section div {
     
 }
 
-body > main > section h2 + #author {
+body > main > section img + #author {
     height: 0px;
     width: 21em;
     opacity: 0;
@@ -111,10 +111,11 @@ body > main > section h2 + #author {
 }
 
 
-body > main > section h2:hover + #author,
-body > main > section h2:active + #author
+body > main > section img:hover + #author,
+body > main > section img:active + #author
+
 {
-    height: 40px;
+    height: 10px;
     opacity: 1;
 }
 
