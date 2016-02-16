@@ -111,7 +111,9 @@ body > main > section h2 + #author {
 }
 
 
-body > main > section h2:hover + #author{
+body > main > section h2:hover + #author,
+body > main > section h2:active + #author
+{
     height: 40px;
     opacity: 1;
 }
