@@ -1,4 +1,4 @@
-var myApp = myApp || {};
+var NYT = NYT || {};
 
 //Thanks to Matthias Dolstra and Senny Kalidien for helping and working with me on this project
 
@@ -7,20 +7,21 @@ var myApp = myApp || {};
     'use strict';
 
     //Object literal declarations
-    myApp.app = {
+    NYT.launcher = {
         //init is a method
         init: function () {
-            myApp.api.init();
-            myApp.ux.gestures();
+            NYT.api.init();
+            NYT.ux.gestures();
         }
     };
 
-    myApp.api = {
+    NYT.api = {
         init: function () {
             aja()
                 .url('http://api.nytimes.com/svc/books/v2/lists/e-book-fiction.json?&api-key=b147374c9f7b0f2b25ddf9694dc28511:4:74324460')
                 .on('success', function (data) {
-                console.log(data);
+                    var loadie = document.getElementById('loader');
+
                     //map the data from the array and add a uniqueid to every result's book_details to be able to get and display the right data with the right title
                     var newdata = _.map(data.results, function (data, iteratee) {
                         data.book_details[0].id = _.uniqueId('book_');
@@ -28,46 +29,49 @@ var myApp = myApp || {};
                         return data;
                     });
 
-                    document.getElementById('loader').classList.add('inactive');
-                    myApp.routes.init(data);
+                    loadie.classList.add('inactive');
 
+                    NYT.routes.init(data);
+
+                })
+                .on('error', function () {
+                    alert('Data request failed')
                 })
                 .go();
         }
     }
 
-    myApp.ux = {
-        gestures: function() {
+    NYT.ux = {
+        gestures: function () {
             var myElement = document.querySelector('body');
             var mc = new Hammer(myElement);
-            
-            mc.on('swiperight', function(ev) {
+
+            mc.on('swiperight', function (ev) {
                 window.history.back();
-});
-            
-            
+            });
+
+
         }
     }
-    
-    myApp.routes = {
+
+    NYT.routes = {
         init: function (data) {
             if (location.hash === undefined || location.hash === '') {
                 location.hash = '#bestsellers';
             }
-            
+
             routie({
                 'bestsellers': function () {
-                    myApp.routes.toggle(window.location.hash);
-                    myApp.page.bestSeller.init(data);
+                    NYT.routes.toggle(window.location.hash);
+                    NYT.page.overviewList.init(data);
                 },
                 'bestsellersdetail/:id': function (id) {
                     //slice is to delete bestsellersdetail/ from the hash, so the queryselector will work
-                    myApp.routes.toggle(window.location.hash.slice(0, 18));
-                    myApp.page.bestsellerDetail.init(data, id);
-                    //                    myApp.page.bestsellerDetail.init();
+                    NYT.routes.toggle(window.location.hash.slice(0, 18));
+                    NYT.page.bestsellerDetail.init(data, id);
                 },
                 '*': function () {
-                    myApp.routes.toggle(window.location.hash);
+                    NYT.routes.toggle(window.location.hash);
                 }
             });
         },
@@ -90,10 +94,11 @@ var myApp = myApp || {};
         }
     };
 
-    myApp.page = {
-        bestSeller: {
+    NYT.page = {
+        overviewList: {
             init: function (data) {
                 //define directives to bind data to the HTML
+                var overview = document.querySelector('[data-route="bestsellers"]');
                 var directives = {
                     results: {
                         book_details: {
@@ -121,40 +126,42 @@ var myApp = myApp || {};
                     }
                 };
                 //Bind and render the data to the right HTML section
-                Transparency.render(document.querySelector('[data-route="bestsellers"]'), data, directives);
+                Transparency.render(overview, data, directives);
             }
         },
         //Book detail page
         bestsellerDetail: {
             init: function (data, id) {
-                
-                data.results.forEach(function (currentValue, index) {
-                    //For each result in the JSON, check if the id matches the current id in the hash, if this is the case, get the right data and bind these to the correct section and HTML elements
-                    if (currentValue.book_details[0].id === id) {
-                        var directives = {
-                            results: {
-                                book_details: {
-                                    description: {
-                                        src: function () {
-                                            return this.description;
-                                        }
-                                    },
-                                    title: {
-                                        text: function () {
-                                            return this.title;
-                                        }
-                                    }
+                var detailPage = document.querySelector('[data-route="bestsellersdetail"]');
+
+                //For each result in the JSON, check if the id matches the current id in the hash, if this is the case, get the right data and bind these to the correct section and HTML elements
+
+                var directives = {
+                    results: {
+                        book_details: {
+                            description: {
+                                src: function () {
+                                    return this.description;
+                                }
+                            },
+                            title: {
+                                text: function () {
+                                    return this.title;
                                 }
                             }
-                        };
-                        Transparency.render(document.querySelector('[data-route="bestsellersdetail"]'), currentValue, directives);
+                        }
                     }
-                })
+                };
+                var dataDetail = _.filter(data.results, function (data) {
+                    return data.book_details[0].id === id;
+                });
+                
+                Transparency.render(detailPage, dataDetail, directives);
 
             }
         }
     }
 
     //Initialize app to run the application
-    myApp.app.init();
+    NYT.launcher.init();
 })();
