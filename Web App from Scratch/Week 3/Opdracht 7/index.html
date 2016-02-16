@@ -19,6 +19,8 @@
     </nav>
 
     <main>
+       
+       <h1>NY Times Bestseller List</h1>
         <section id="loader">
             <!--Loader is created from http://cssload.net-->
             <div class="bubblingG">
@@ -33,7 +35,7 @@
         <section id="bestsellers" data-route="bestsellers" class="togglesection">
             <div data-bind="results">
                 <div data-bind="book_details">
-                    <h2><a data-bind="id" href=""></a></h2>
+                    <h2><a data-bind="id" href="" id="booktitle"></a></h2>
                     <p data-bind="author" id="author"></p>
                     <img src="" data-bind="book_image" id="bookImage"/>
                 </div>
@@ -54,6 +56,7 @@
 <script src="static/lib/routie.min.js"></script>
 <script src="static/lib/transparency.min.js"></script>
 <script src="static/lib/underscore.min.js"></script>
+<script src="static/lib/hammer.min.js"></script>
 <script src="static/scripts/app.js"></script>
 
 </html>

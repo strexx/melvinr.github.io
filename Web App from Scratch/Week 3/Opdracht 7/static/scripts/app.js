@@ -11,6 +11,7 @@ var myApp = myApp || {};
         //init is a method
         init: function () {
             myApp.api.init();
+            myApp.transit.gestures();
         }
     };
 
@@ -35,6 +36,19 @@ var myApp = myApp || {};
         }
     }
 
+    myApp.transit = {
+        gestures: function() {
+            var myElement = document.querySelector('body');
+            var mc = new Hammer(myElement);
+            
+            mc.on("swiperight", function(ev) {
+                window.history.back();
+});
+            
+            
+        }
+    }
+    
     myApp.routes = {
         init: function (data) {
             if (location.hash === undefined || location.hash === '') {
