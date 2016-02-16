@@ -4,14 +4,14 @@ var myApp = myApp || {};
 
 //IIFE, this is a self invoking function
 (function () {
-    "use strict";
+    'use strict';
 
     //Object literal declarations
     myApp.app = {
         //init is a method
         init: function () {
             myApp.api.init();
-            myApp.transit.gestures();
+            myApp.ux.gestures();
         }
     };
 
@@ -36,12 +36,12 @@ var myApp = myApp || {};
         }
     }
 
-    myApp.transit = {
+    myApp.ux = {
         gestures: function() {
             var myElement = document.querySelector('body');
             var mc = new Hammer(myElement);
             
-            mc.on("swiperight", function(ev) {
+            mc.on('swiperight', function(ev) {
                 window.history.back();
 });
             
@@ -72,15 +72,15 @@ var myApp = myApp || {};
             });
         },
         toggle: function (route) {
-            var sections = document.querySelectorAll(".togglesection");
+            var sections = document.querySelectorAll('.togglesection');
             var i;
 
             for (i = 0; i < sections.length; i++) {
-                sections[i].classList.add("inactive");
+                sections[i].classList.add('inactive');
 
                 //If there is no hash, make every section visible, in case JS is disabled.
                 if (!route) {
-                    sections[0].classList.remove("inactive");
+                    sections[0].classList.remove('inactive');
                 } else {
 
                     //make the right section, according to its hash, visible
@@ -104,7 +104,7 @@ var myApp = myApp || {};
                             },
                             author: {
                                 text: function () {
-                                    return "This book is written by " + this.author;
+                                    return 'This book is written by ' + this.author;
                                 }
                             },
                             id: {
@@ -113,7 +113,7 @@ var myApp = myApp || {};
                                 },
                                 href: function () {
                                     //pass the correct hashlink to to the href, so the detailpages have the correct links
-                                    return "#bestsellersdetail/" + this.id;
+                                    return '#bestsellersdetail/' + this.id;
                                     console.log(data.results[0].book_details[0])
                                 }
                             }

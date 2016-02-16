@@ -116,10 +116,8 @@ body > main > section h2:hover + #author{
 }
 
 body > main > section img {
-/*
-    width: 300px;
-    height: 500px;
-*/
+    width: 80vw;
+    max-width: 20em;
 }
 
 body > main > section > ul {
