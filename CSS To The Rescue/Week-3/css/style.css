@@ -27,6 +27,7 @@ body {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    background: #303040;
 }
 
 h1 {
@@ -43,6 +44,24 @@ h3 {
 
 a {
     text-decoration: none;
+}
+
+[role=button] {
+    border-radius: 1em;
+}
+
+button {
+    position: relative;
+    cursor: pointer;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
 }
 
 article header {
@@ -138,7 +157,6 @@ article header {
 
 header > nav > ul {
     height: 0;
-    /*    margin-top: 10em;*/
     max-height: 20em;
     overflow: hidden;
     background: RGBA(255, 255, 255, 1);
@@ -146,24 +164,55 @@ header > nav > ul {
     list-style-type: none;
 }
 
+nav ul li {
+    width: 100%;
+    height: 1.8em;
+    box-sizing: border-box;
+    padding-left: 1.2em;
+}
+
 #main-nav:target {
     z-index: 100;
     height: 20em;
+    -webkit-animation: target .5s ease-out;
+    animation: target .5s ease-out;
 }
 
-.closeme {
+@-webkit-keyframes target {
+    from {
+        height: 0;
+    }
+    to {
+        height: 20em;
+    }
+}
+
+@keyframes target {
+        from {
+        height: 0;
+    }
+    to {
+        height: 20em;
+    }
+}
+
+#closemenu {
     border-bottom: 1px solid red;
-    background: transparent;
 }
 
 nav > ul a {
     color: RGBA(45, 62, 79, 1);
+    display: block;
 }
 
-li a:hover {
-    display: block;
+li:hover,
+li:hover a {
     background: #434343;
     color: white;
+}
+
+li:hover svg {
+    fill: white;
 }
 
 svg {
@@ -192,16 +241,14 @@ main > article {
     max-width: 30em;
     padding: 0.8em;
     margin-bottom: 2em;
-/*    -webkit-box-flex: 1;*/
-/*    -webkit-flex: 1 0 17em;*/
-/*    -ms-flex: 1 0 17em;*/
-/*    -webkit-box-flex: 1;*/
-/*    -webkit-flex: 1 0 20vw;*/
-/*    -ms-flex: 1 0 20vw;*/
     -webkit-box-flex: 1;
     -webkit-flex: 1 0 17em;
     -ms-flex: 1 0 17em;
     flex: 1 0 17em;
+    background: white;
+    border-radius: 1em;
+    margin-left: .4em;
+    margin-right: .4em;
 }
 
 main > article header h2 {
@@ -257,6 +304,27 @@ section figure {
     flex: 0 1 33.33%;
 }
 
+#find-friends img:hover {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+    border-radius: 50% 0 50% 0;
+    -webkit-filter: brightness(1.5);
+    filter: brightness(1.5);
+    
+}
+
+#find-friends img {
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    border-radius: 10%;
+    -webkit-filter: brightness(0.5);
+    filter: brightness(0.5);
+    
+        
+}
+
 .effect-01 > img {
     -webkit-filter: brightness(1.5);
     filter: brightness(1.5);
@@ -302,10 +370,14 @@ section figure {
     -ms-flex-direction: column;
     flex-direction: column;
     background: #3e5770;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
     align-items: center;
     position: fixed;
     top: 50%;
     left: 50%;
+    padding: 1em;
     max-width: 80vw;
     max-height: 80vh;
     -webkit-transform: translate(-50%, -50%);
@@ -326,17 +398,18 @@ section figure {
     width: 50vw;
 }
 
-#my-friends form {
+.closeoverlay {
     -webkit-align-self: flex-end;
-    ;
     -ms-flex-item-align: end;
     align-self: flex-end;
-    width: 4em;
+    /*    width: 1.5em;*/
+    padding-top: 0.3em;
 }
 
-#my-friends form input {
-    color: white;
-    margin: auto;
+.closeoverlay svg {
+    fill: white;
+    width: 1.2em;
+    height: 1.2em;
 }
 
 #my-friends h1 {
@@ -346,20 +419,15 @@ section figure {
     color: white;
 }
 
-#my-friends > form > input {
-    font-size: 1.2em;
-    width: 80%;
-}
-
 #my-friends figcaption {
     padding: 1em;
     margin: auto;
-}
-
-figcaption {
     color: white;
 }
 
+figcaption {
+    color: black;
+}
 
 form > fieldset > legend {
     font-size: 1.1em;
@@ -368,7 +436,15 @@ form > fieldset > legend {
 
 form label > input {
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid #434343;
+     -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+    
+}
+
+form label > input:focus {
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
 }
 
 form > fieldset > button {
@@ -381,6 +457,7 @@ form > fieldset > button {
 }
 
 a[role=button] {
+    position: relative;
     background: #3e5770;
     color: white;
     padding: 0.5em;
@@ -389,9 +466,46 @@ a[role=button] {
     text-align: center;
 }
 
+a[role=button]::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+}
+
 main > article img {
     width: 100%;
     max-width: 30em;
+}
+
+@-webkit-keyframes loader {
+    to {
+        background-position: -1600px 0;
+    }
+}
+
+@keyframes loader {
+    to {
+        background-position: -1600px 0;
+    }
+}
+
+.loader {
+    width: 100px;
+    height: 100px;
+    background: url(../images/loader.png) 0 0;
+    -webkit-animation: loader 1s infinite steps(16);
+    animation: loader 1s infinite steps(16);
+    text-indent: 200%;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: auto;
+}
+
+[aria-disabled="true"] {
+    cursor: not-allowed;
 }
 
 
@@ -417,8 +531,7 @@ footer {
 footer ul {
     list-style-type: none;
     box-sizing: border-box;
-    width: 40%;
-    margin-left: 2em;
+    padding-left: 1em;
 }
 
 .first {
@@ -426,15 +539,16 @@ footer ul {
     -webkit-order: 2;
     -ms-flex-order: 2;
     order: 2;
-    max-width: 10em;
+    max-width: 40em;
 }
 
 .second {
     -webkit-box-ordinal-group: 4;
     -webkit-order: 3;
     -ms-flex-order: 3;
-    order: 2;
+    order: 3;
     max-width: 10em;
+    padding-left: 1em;
 }
 
 footer ul a {
@@ -483,36 +597,23 @@ address > pre {
     }
     #menu-icon {
         display: none;
-        width: 0;
+        height: auto;
     }
     header > nav > ul {
         background-color: inherit;
-        padding-left: 1.2em;
-        padding-top: 1em;
         overflow: visible;
+        margin-top: 1em;
     }
-    [role=banner] p {
-        width: 70%;
-        height: 2em;
-        position: relative;
-        margin: auto;
+    li:hover,
+    li:hover a {
+        background: white;
+        color: #434343;
     }
-    
-    [role=banner] img {
-        margin: 0 auto;
-        display: block;
-    }
-    
-    li a:hover {
-        display: inline;
-        background: #434343;
-        color: white;
-    }
-    #closemenu {
-        display: none;
+    li:hover svg {
+        fill: #434343;
     }
     nav > ul li {
-        padding: 0.2em;
+        padding-top: 0.1em;
     }
     nav > ul a {
         color: white;
@@ -520,20 +621,45 @@ address > pre {
     ul a svg {
         fill: white
     }
+    #closemenu {
+        display: none;
+    }
+    [role=banner] p {
+        width: 70%;
+        height: 2em;
+        position: relative;
+        margin: auto;
+    }
+    [role=banner] img {
+        margin: 0 auto;
+        display: block;
+    }
     main {
         width: 70vw;
         margin: 0;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
     }
-    
+    #main-nav:target {
+        height: auto;
+    }
     main > article {
         -webkit-box-flex: 1;
-    -webkit-flex: 1 0 30vw;
-    -ms-flex: 1 0 30vw;
-    flex: 1 0 30vw;
-}
+        -webkit-flex: 1 0 30vw;
+        -ms-flex: 1 0 30vw;
+        flex: 1 0 30vw;
+        margin-left: 1em;
     }
-    
-    #top-wrapper {
-        height: 6vh;
+    #find-friends {
+        width: 100vw;
+        max-width: 63em;
+    }
+    #find-friends figure {
+        max-width: 9em;
+    }
+    footer ul {
+        width: 100%;
     }
 }
