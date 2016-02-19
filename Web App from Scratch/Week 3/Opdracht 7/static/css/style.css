@@ -250,7 +250,7 @@ body > main > section > ul {
 
 #loader {
     width: 98.9vw;
-    height: 100vw;
+    background: transparent;
 }
 
 .bubblingG {

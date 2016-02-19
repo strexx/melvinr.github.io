@@ -12,7 +12,7 @@ NYT.api = (function () {
             aja()
                 .url('http://api.nytimes.com/svc/books/v2/lists/'+ _genre + _dataType + '?&api-key=' + _apiKey)
                 .on('success', (data) => {
-                    _loadie.classList.add('inactive');
+                    NYT.ux.loader(false);
                     //map the data from the array and add a uniqueid to every result's book_details to be able to get and display the right data with the right title
                     var newdata = _.map(data.results, (data, iteratee) =>{
                         data.book_details[0].id = _.uniqueId('book_');
@@ -26,6 +26,7 @@ NYT.api = (function () {
                 })
                 .on('error', () => {
                     alert('Data request failed')
+                    NYT.ux.loader(false);
                 })
                 .go();
         }
