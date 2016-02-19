@@ -9,8 +9,6 @@ html {
 
 body {
     font-family: open sans;
-/*    min-width: 22.5em;*/
-    width: 100vw;
 }
 
 .togglesections {
@@ -64,22 +62,22 @@ body > nav > ul a:active {
 /*Main styling*/
 
 body > main {
-/*    box-sizing: border-box;*/
-/*    padding: 0.7em;*/
-    width: 100vw;
+    /*    box-sizing: border-box;*/
+    /*    padding: 0.7em;*/
     max-width: 40em;
 }
 
 main > h1 {
     box-sizing: border-box;
     padding: .4em;
-    width: 100vw;
     max-width: 40em;
     font-size: 1.6em;
 }
 
 body > main > section {
     margin-bottom: 1em;
+    box-sizing: border-box;
+    padding-left: 1em;
 }
 
 body > main > #bestsellers > div {
@@ -87,19 +85,15 @@ body > main > #bestsellers > div {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-
     width: 100%;
-
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
-
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    
     margin-top: 1em;
 }
 
@@ -116,7 +110,7 @@ body > main > #bestsellers > div {
 }
 
 #bestsellersdetail {
-/*    position: absolute;*/
+    position: absolute;
     max-width: 30em;
     height: 100%;
     left: 800px;
@@ -177,7 +171,7 @@ body > main > section h2 + #details {
     height: 0px;
     width: 19em;
     font-size: 0.8em;
-    text-align: right;
+    border-top: 1px solid red;
     opacity: 0;
     -webkit-transition: width 0.8s, height 1s, -webkit-transform 1s, opacity .5s ease-in;
     /* Safari */
@@ -194,8 +188,6 @@ body > main > section h2:active + #details {
     height: 40px;
     opacity: 1;
 }
-
-
 
 body > main > section img {
     display: block;
@@ -231,7 +223,6 @@ body > main > section > ul {
     -ms-touch-action: none;
     touch-action: none;
 }
-
 
 
 /*Loader*/
@@ -320,9 +311,18 @@ body > main > section > ul {
 
 @media screen and (min-width: 770px) {
     #single-book {
-            -webkit-box-flex: 0;
-    -webkit-flex: 0 1 33%;
-    -ms-flex: 0 1 33%;
-    flex: 0 1 33%;
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 1 50%;
+        -ms-flex: 0 1 50%;
+        flex: 0 1 50%;
+    }
+}
+
+@media screen and (min-width: 1060px) {
+    #single-book {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 1 33.33%;
+        -ms-flex: 0 1 33.33%;
+        flex: 0 1 33.33%;
     }
 }
