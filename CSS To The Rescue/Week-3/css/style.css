@@ -58,6 +58,8 @@ button {
 button::before {
     content: '';
     position: absolute;
+    /*Creating a transparent pseudo element, which also
+    captures mouse interaction of parent*/
     top: -10px;
     right: -10px;
     bottom: -10px;
@@ -380,10 +382,11 @@ section figure {
     transform: translate(-50%, -50%);
     z-index: 100;
     box-shadow: 0 0 0 50vmax rgba(0, 0, 0, .9);
-    background: hsl(20, 40%, 90%);
+    
     background-image: -webkit-linear-gradient(left, #3e5770 11px, transparent 0), -webkit-linear-gradient(left, #3e5770 23px, transparent 0), -webkit-linear-gradient(left, #2d3e4f 23px, transparent 0);
     background-image: linear-gradient(90deg, #3e5770 11px, transparent 0), linear-gradient(90deg, #3e5770 23px, transparent 0), linear-gradient(90deg, #2d3e4f 23px, transparent 0);
-    background-size: 83px 100%, 61px 100%, 41px 100%;
+    /*To control the spacing in the color stops*/
+    background-size: 93px 100%, 61px 100%, 41px 100%;
 }
 
 #my-friends figure {
@@ -454,7 +457,10 @@ form label > input:focus {
     transform: scale(1.03);
 }
 
-input[id="check"] + label::before {
+/*A label associated with a checkbox, also acts as a toggle*/
+
+
+input[id="check"] + label::before { /*Will function as styled checkbox*/
     content: '\a0';
     display: inline-block;
     vertical-align: .1em;
@@ -476,7 +482,8 @@ input[id="check"]:checked + label::before {
 
 input[id="check"] {
     position: absolute;
-    clip: rect(0, 0, 0, 0); /*clipt het deel wat je wilt zien eruit*/
+    clip: rect(0, 0, 0, 0); /*clips out the part you want hidden,
+    instead of using display: none*/
 }
 
 form > fieldset > button {
@@ -527,7 +534,9 @@ main > article img {
 .loader {
     width: 100px;
     height: 100px;
-    background: url(../images/loader.png) 0 0;
+    background: url(../images/loader.png) 0 0; /*sprite image for loader*/
+    /*by making use of steps() instead of a bezier curve the animation takes frames,
+    instead if sliding smoothly from frame to frame*/
     -webkit-animation: loader 1s infinite steps(16);
     animation: loader 1s infinite steps(16);
     text-indent: 200%;
