@@ -7,16 +7,14 @@ NYT.ux = (function () {
     var _nytBody = document.querySelector('body');
     var _mc = new Hammer(_nytBody);
 
-    function myGestures() {
 
         function swipeBack() {
             _mc.on('swiperight', function (ev) {
                 window.history.back();
             });
         }
-    }
 
     return {
-        gestures: myGestures
+        gestures: swipeBack
     }
 })();
