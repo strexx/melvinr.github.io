@@ -104,7 +104,7 @@ body > main > #bestsellers > div {
 }
 
 #bestsellers {
-    position: absolute;
+/*    position: absolute;*/
     width: 100%;
     left: -800px;
     -webkit-animation: slide 0.5s backwards;
