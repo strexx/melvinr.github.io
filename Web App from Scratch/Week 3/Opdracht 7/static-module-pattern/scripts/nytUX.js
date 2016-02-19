@@ -4,7 +4,7 @@ var NYT = NYT || {};
 
 NYT.ux = (function () {
 
-    var _nytBody = document.querySelector('body');
+    var _nytBody = document.querySelector('html');
     var _mc = new Hammer(_nytBody);
 
 
