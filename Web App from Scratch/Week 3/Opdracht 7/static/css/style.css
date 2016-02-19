@@ -19,6 +19,10 @@ body {
     display: none;
 }
 
+.hide {
+    z-index: -100;
+}
+
 body > nav {
     width: 100%;
     background-color: #434343;
@@ -100,7 +104,8 @@ body > main > #bestsellers > div {
 #bestsellers {
     position: absolute;
     width: 100%;
-    left: -800px;
+    left: -100%;
+    background: white;
     -webkit-animation: slide 0.5s backwards;
     -webkit-animation-delay: 1s;
     -webkit-animation: slide 0.5s forwards;
@@ -111,9 +116,9 @@ body > main > #bestsellers > div {
 
 #bestsellersdetail {
     position: absolute;
-    max-width: 30em;
+/*    max-width: 30em;*/
     height: 100%;
-    left: 800px;
+    left: 100%;
     background: white;
     box-sizing: border-box;
     padding: 1em;

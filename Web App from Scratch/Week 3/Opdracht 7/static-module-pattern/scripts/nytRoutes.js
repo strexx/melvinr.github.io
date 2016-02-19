@@ -28,15 +28,14 @@ NYT.routes = (function () {
 
     function toggle(route) {
         for (i = 0; i < _sections.length; i++) {
-            _sections[i].classList.add('inactive');
-
+            _sections[i].classList.add('hide');
             //If there is no hash, make every section visible, in case JS is disabled.
             if (!route) {
-                _sections[0].classList.remove('inactive');
+                _sections[0].classList.remove('hide');
             } else {
 
                 //make the right section, according to its hash, visible
-                document.querySelector(route).classList.remove('inactive');
+                document.querySelector(route).classList.remove('hide');
             }
         }
     };
