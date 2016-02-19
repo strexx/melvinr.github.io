@@ -8,7 +8,7 @@ NYT.ux = (function () {
     var mc = new Hammer(nytBody);
 
     function swipeBack() {
-        mc.on('swiperight', function (ev) {
+        mc.on('swiperight', (ev) => {
             window.history.back();
         });
     }

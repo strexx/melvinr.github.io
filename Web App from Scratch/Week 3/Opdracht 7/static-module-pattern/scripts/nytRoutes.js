@@ -11,16 +11,16 @@ NYT.routes = (function () {
 
     function routers(data) {
         routie({
-            'bestsellers': function () {
+            'bestsellers': () => {
                 NYT.routes.toggle(window.location.hash);
                 NYT.page.overviewList.init(data);
             },
-            'bestsellersdetail/:id': function (id) {
+            'bestsellersdetail/:id': (id) => {
                 //slice is to delete bestsellersdetail/ from the hash, so the queryselector will work
                 NYT.routes.toggle(window.location.hash.slice(0, 18));
                 NYT.page.bestsellerDetail.init(data, id);
             },
-            '*': function () {
+            '*': () => {
                 NYT.routes.toggle(window.location.hash);
             }
         });
