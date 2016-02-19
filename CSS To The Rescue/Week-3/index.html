@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='favicon.ico' rel='shortcut icon'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -88,12 +89,12 @@
 
 
         <article id="my-friends">
-           <a href="#" class="closeoverlay">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" width="612" height="612" viewBox="0 0 612 612" xml:space="preserve">
-                        <path d="M423.2 438c-3.8 0-7.5-1.4-10.4-4.3L178.4 199.2c-5.7-5.7-5.7-15.1 0-20.8 5.8-5.8 15.1-5.8 20.8 0l234.5 234.5c5.8 5.8 5.8 15.1 0 20.8C430.8 436.5 427 438 423.2 438zM188.8 438c-3.8 0-7.5-1.4-10.4-4.3 -5.7-5.7-5.7-15.1 0-20.8l234.4-234.5c5.8-5.8 15.1-5.8 20.8 0 5.8 5.7 5.8 15.1 0 20.8l-234.4 234.5C196.3 436.5 192.5 438 188.8 438z" />
-                        <path d="M306 612v-14.7l0 14.7c-168.7 0-306-137.3-306-306C0 137.3 137.3 0 306 0c168.7 0 306 137.3 306 306C612 474.7 474.7 612 306 612zM306 29.4c-152.5 0-276.6 124.1-276.6 276.6 0 152.5 124.1 276.6 276.6 276.6h0c152.5 0 276.5-124.1 276.5-276.6C582.6 153.5 458.5 29.4 306 29.4z" />
-                    </svg>
-                </a>
+            <a href="#" class="closeoverlay">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" width="612" height="612" viewBox="0 0 612 612" xml:space="preserve">
+                    <path d="M423.2 438c-3.8 0-7.5-1.4-10.4-4.3L178.4 199.2c-5.7-5.7-5.7-15.1 0-20.8 5.8-5.8 15.1-5.8 20.8 0l234.5 234.5c5.8 5.8 5.8 15.1 0 20.8C430.8 436.5 427 438 423.2 438zM188.8 438c-3.8 0-7.5-1.4-10.4-4.3 -5.7-5.7-5.7-15.1 0-20.8l234.4-234.5c5.8-5.8 15.1-5.8 20.8 0 5.8 5.7 5.8 15.1 0 20.8l-234.4 234.5C196.3 436.5 192.5 438 188.8 438z" />
+                    <path d="M306 612v-14.7l0 14.7c-168.7 0-306-137.3-306-306C0 137.3 137.3 0 306 0c168.7 0 306 137.3 306 306C612 474.7 474.7 612 306 612zM306 29.4c-152.5 0-276.6 124.1-276.6 276.6 0 152.5 124.1 276.6 276.6 276.6h0c152.5 0 276.5-124.1 276.5-276.6C582.6 153.5 458.5 29.4 306 29.4z" />
+                </svg>
+            </a>
             <h1>Your current friends</h1>
             <figure>
                 <img src="images/profile-picture-05.jpg">
@@ -125,6 +126,10 @@
                         <span>Verify new password</span>
                         <input id="current-password" type="password" required>
                     </label>
+                    <span>
+                    <input type="checkbox" id="check" />
+                    <label for="check">I'm an android</label>
+                    </span>
                     <button role="button" type="submit">Yep, change it!</button>
                 </fieldset>
             </form>

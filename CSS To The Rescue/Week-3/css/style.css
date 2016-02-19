@@ -188,7 +188,7 @@ nav ul li {
 }
 
 @keyframes target {
-        from {
+    from {
         height: 0;
     }
     to {
@@ -310,7 +310,6 @@ section figure {
     border-radius: 50% 0 50% 0;
     -webkit-filter: brightness(1.5);
     filter: brightness(1.5);
-    
 }
 
 #find-friends img {
@@ -321,8 +320,6 @@ section figure {
     border-radius: 10%;
     -webkit-filter: brightness(0.5);
     filter: brightness(0.5);
-    
-        
 }
 
 .effect-01 > img {
@@ -369,7 +366,6 @@ section figure {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    background: #3e5770;
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
@@ -384,6 +380,10 @@ section figure {
     transform: translate(-50%, -50%);
     z-index: 100;
     box-shadow: 0 0 0 50vmax rgba(0, 0, 0, .9);
+    background: hsl(20, 40%, 90%);
+    background-image: -webkit-linear-gradient(left, #3e5770 11px, transparent 0), -webkit-linear-gradient(left, #3e5770 23px, transparent 0), -webkit-linear-gradient(left, #2d3e4f 23px, transparent 0);
+    background-image: linear-gradient(90deg, #3e5770 11px, transparent 0), linear-gradient(90deg, #3e5770 23px, transparent 0), linear-gradient(90deg, #2d3e4f 23px, transparent 0);
+    background-size: 83px 100%, 61px 100%, 41px 100%;
 }
 
 #my-friends figure {
@@ -407,22 +407,31 @@ section figure {
 }
 
 .closeoverlay svg {
-    fill: white;
-    width: 1.2em;
-    height: 1.2em;
+    fill: #434343;
+    width: 2.2em;
+    height: 2.2em;
+    background: white;
+    border-radius: 100%;
+
 }
 
 #my-friends h1 {
     font-size: 1.3em;
     width: 100%;
     max-width: 23em;
-    color: white;
+    padding-left: 0.4em;
+    color: #434343;
+    background: white;
+    border-radius: 0.2em 0.2em 0em 0em;
+    box-sizing: border-box;
 }
 
 #my-friends figcaption {
     padding: 1em;
     margin: auto;
-    color: white;
+    color: #434343;
+    background: white;
+    border-radius: 1em;
 }
 
 figcaption {
@@ -437,14 +446,38 @@ form > fieldset > legend {
 form label > input {
     width: 100%;
     border: 1px solid #434343;
-     -webkit-transition: all 0.7s ease;
+    -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
-    
 }
 
 form label > input:focus {
     -webkit-transform: scale(1.03);
     transform: scale(1.03);
+}
+
+input[id="check"] + label::before {
+    content: '\a0';
+    display: inline-block;
+    vertical-align: .1em;
+    width: 1.1em;
+    height: 1.1em;
+    margin-right: .2em;
+    border-radius: .2em;
+    background: silver;
+    text-indent: .15em;
+    line-height: 1;
+}
+
+input[id="check"]:checked + label::before {
+    font-family: FontAwesome;
+    content: '\f17b';
+    color: yellowgreen;
+    background: black;
+}
+
+input[id="check"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
 }
 
 form > fieldset > button {
