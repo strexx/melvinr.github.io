@@ -9,7 +9,7 @@ NYT.ux = (function () {
 
 
         function swipeBack() {
-            _mc.on('swiperight', function (ev) {
+            _mc.on('swiperight', (ev) => {
                 window.history.back();
             });
         }

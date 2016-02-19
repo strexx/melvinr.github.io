@@ -49,11 +49,11 @@ NYT.page = (function () {
 
     function initDetail(data, id) {
         //Filter the id's from the data and check if id matches the current id in the url's hash
-        var dataDetail = _.filter(data.results, function (data) {
+        var _dataDetail = _.filter(data.results, (data) => {
             return data.book_details[0].id === id;
         });
 
-        Transparency.render(_detailPage, dataDetail, _directives);
+        Transparency.render(_detailPage, _dataDetail, _directives);
     }
 
 //public
