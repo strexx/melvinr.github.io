@@ -14,7 +14,7 @@ NYT.api = (function () {
                 .on('success', function (data) {
                     _loadie.classList.add('inactive');
                     //map the data from the array and add a uniqueid to every result's book_details to be able to get and display the right data with the right title
-                    var newdata = _.map(data.results, (data, iteratee) => {
+                    var newdata = _.map(data.results, function(data, iteratee) {
                         data.book_details[0].id = _.uniqueId('book_');
 
                         return data;

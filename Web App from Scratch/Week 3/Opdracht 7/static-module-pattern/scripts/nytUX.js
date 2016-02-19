@@ -10,7 +10,7 @@ NYT.ux = (function () {
     function myGestures() {
 
         function swipeBack() {
-            _mc.on('swiperight', (ev) => {
+            _mc.on('swiperight', function (ev) {
                 window.history.back();
             });
         }

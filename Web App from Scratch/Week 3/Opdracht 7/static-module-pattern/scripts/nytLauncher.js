@@ -4,7 +4,7 @@ var NYT = NYT || {};
 NYT.launcher = (function () {
     
     return {
-        init: () => {
+        init: function ()  {
             NYT.api.init();
             NYT.ux.gestures();
         }

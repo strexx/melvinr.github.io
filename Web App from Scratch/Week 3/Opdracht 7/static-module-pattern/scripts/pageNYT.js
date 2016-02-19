@@ -49,7 +49,7 @@ NYT.page = (function () {
 
     function initDetail(data, id) {
         //Filter the id's from the data and check if id matches the current id in the url's hash
-        var dataDetail = _.filter(data.results, (data) => {
+        var dataDetail = _.filter(data.results, function (data) {
             return data.book_details[0].id === id;
         });
 
