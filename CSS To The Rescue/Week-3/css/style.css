@@ -412,7 +412,6 @@ section figure {
     height: 2.2em;
     background: white;
     border-radius: 100%;
-
 }
 
 #my-friends h1 {
@@ -477,7 +476,7 @@ input[id="check"]:checked + label::before {
 
 input[id="check"] {
     position: absolute;
-    clip: rect(0, 0, 0, 0);
+    clip: rect(0, 0, 0, 0); /*clipt het deel wat je wilt zien eruit*/
 }
 
 form > fieldset > button {
