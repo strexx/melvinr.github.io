@@ -1,1 +1,1 @@
-[Link to live site](http://melvinr.github.io/Web%20App%20from%20Scratch/Week%202/Opdracht%206/index.html)
+[Link to live site, this has to be watched in a cutting edge browser, like the latest Chrome](http://melvinr.github.io/Web%20App%20from%20Scratch/Week%203/Opdracht%207/index.html)
