@@ -4,11 +4,11 @@ var NYT = NYT || {};
 
 NYT.ux = (function () {
 
-    var nytBody = document.querySelector('body');
-    var mc = new Hammer(nytBody);
+    var _nytBody = document.querySelector('body');
+    var _mc = new Hammer(_nytBody);
 
     function swipeBack() {
-        mc.on('swiperight', (ev) => {
+        _mc.on('swiperight', (ev) => {
             window.history.back();
         });
     }

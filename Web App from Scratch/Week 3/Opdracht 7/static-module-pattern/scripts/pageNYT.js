@@ -3,9 +3,9 @@ var NYT = NYT || {};
 
 NYT.page = (function () {
     //private
-    var overview = document.querySelector('[data-route="bestsellers"]'),
-        detailPage = document.querySelector('[data-route="bestsellersdetail"]'),
-        directives = {
+    var _overview = document.querySelector('[data-route="bestsellers"]'),
+        _detailPage = document.querySelector('[data-route="bestsellersdetail"]'),
+        _directives = {
             results: {
                 book_details: {
                     book_image: {
@@ -44,7 +44,7 @@ NYT.page = (function () {
 
     //still private
     function initOverview(data) {
-        Transparency.render(overview, data, directives);
+        Transparency.render(_overview, data, _directives);
     }
 
     function initDetail(data, id) {
@@ -53,7 +53,7 @@ NYT.page = (function () {
             return data.book_details[0].id === id;
         });
 
-        Transparency.render(detailPage, dataDetail, directives);
+        Transparency.render(_detailPage, dataDetail, _directives);
     }
 
 //public
