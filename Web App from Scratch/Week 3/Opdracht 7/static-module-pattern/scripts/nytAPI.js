@@ -3,9 +3,8 @@ var NYT = NYT || {};
 
 NYT.api = (function () {
     var loadie = document.getElementById('loader');
-
-    return {
-        init: function () {
+    
+    function apiRequest () {
             aja()
                 .url('http://api.nytimes.com/svc/books/v2/lists/e-book-fiction.json?&api-key=b147374c9f7b0f2b25ddf9694dc28511:4:74324460')
                 .on('success', function (data) {
@@ -26,5 +25,8 @@ NYT.api = (function () {
                 })
                 .go();
         }
+
+    return {
+        init: apiRequest
     }
 })();

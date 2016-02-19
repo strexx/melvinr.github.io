@@ -2,6 +2,7 @@ var NYT = NYT || {};
 'use strict';
 
 NYT.page = (function () {
+    //private
     var overview = document.querySelector('[data-route="bestsellers"]'),
         detailPage = document.querySelector('[data-route="bestsellersdetail"]'),
         directives = {
@@ -41,27 +42,28 @@ NYT.page = (function () {
             }
         };
 
+    //still private
+    function initOverview(data) {
+        Transparency.render(overview, data, directives);
+    }
 
+    function initDetail(data, id) {
+        //Filter the id's from the data and check if id matches the current id in the url's hash
+        var dataDetail = _.filter(data.results, function (data) {
+            return data.book_details[0].id === id;
+        });
+
+        Transparency.render(detailPage, dataDetail, directives);
+    }
+
+//public
     return {
         overviewList: {
-            init: function (data) {
-                //define directives to bind data to the HTML
-                //Bind and render the data to the right HTML section
-                Transparency.render(overview, data, directives);
-            }
+            init: initOverview
         },
         //Book detail page
         bestsellerDetail: {
-            init: function (data, id) {
-
-                //Filter the id's from the data and check if id matches the current id in the url's hash
-                var dataDetail = _.filter(data.results, function (data) {
-                    return data.book_details[0].id === id;
-                });
-
-                Transparency.render(detailPage, dataDetail, directives);
-
-            }
+            init: initDetail
         }
-    }
+}
 })();

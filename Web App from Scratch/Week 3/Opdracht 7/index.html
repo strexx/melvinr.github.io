@@ -19,8 +19,8 @@
     </nav>
 
     <main>
-       
-       <h1>NY Times Bestseller List</h1>
+
+        <h1>NY Times Bestseller List</h1>
         <section id="loader">
             <!--Loader is created from http://cssload.net-->
             <div class="bubblingG">
@@ -34,10 +34,13 @@
         </section>
         <section id="bestsellers" data-route="bestsellers" class="togglesection">
             <div data-bind="results">
-                <div data-bind="book_details">
-                    <h2><a data-bind="id" href="" id="booktitle"></a></h2>
-                    <p data-bind="author" id="author"></p>
-                    <img src="" data-bind="book_image" id="bookImage"/>
+                <div data-bind="book_details" id="single-book">
+                    <div id="book-text">
+                        <h2><a data-bind="id" href="" id="booktitle"></a></h2>
+                        <p id="details">Show me page</p>
+                        <p data-bind="author" id="author"></p>
+                    </div>
+                    <img src="" data-bind="book_image" id="bookImage" />
                 </div>
             </div>
         </section>

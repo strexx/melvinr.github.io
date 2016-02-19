@@ -5,7 +5,7 @@
 
 body {
     font-family: open sans;
-    min-width: 22.5em;
+/*    min-width: 22.5em;*/
     width: 100vw;
 }
 
@@ -32,11 +32,6 @@ body > nav > ul > li {
 }
 
 body > nav > ul a {
-    /*
-    text-decoration: none;
-    color: white;
-    padding: 1em;
-*/
     width: 120px;
     border-left: 5px solid #666;
     float: left;
@@ -61,25 +56,100 @@ body > nav > ul a:active {
     box-shadow: 0 4px 4px -2px RGBA(67, 67, 67, 0.5);
 }
 
+
+/*Main styling*/
+
 body > main {
-    padding: 0.7em;
+/*    box-sizing: border-box;*/
+/*    padding: 0.7em;*/
+    width: 100vw;
     max-width: 40em;
+}
+
+main > h1 {
+    box-sizing: border-box;
+    padding: .4em;
+    width: 100vw;
+    max-width: 40em;
+    font-size: 1.6em;
 }
 
 body > main > section {
     margin-bottom: 1em;
 }
 
-.togglesection {
+body > main > #bestsellers > div {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    width: 100%;
+
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    
+    margin-top: 1em;
+}
+
+#bestsellers {
     position: absolute;
-    max-width: 30em;
+    width: 100%;
     left: -800px;
-    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation: slide 0.5s backwards;
     -webkit-animation-delay: 1s;
     -webkit-animation: slide 0.5s forwards;
     animation: slide 0.5s forwards;
     -webkit-animation-delay: 0.6s;
     animation-delay: 0.6s;
+}
+
+#bestsellersdetail {
+    position: absolute;
+    max-width: 30em;
+    height: 100%;
+    left: 800px;
+    background: white;
+    box-sizing: border-box;
+    padding: 1em;
+    -webkit-animation: slide 0.5s backwards;
+    -webkit-animation-delay: 1s;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+
+#book-text {
+    margin-top: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 70%;
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+}
+
+#book-text h2 {
+    font-size: 1.2em;
+    -webkit-align-content: flex-end;
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
 }
 
 @-webkit-keyframes slide {
@@ -94,13 +164,16 @@ body > main > section {
     }
 }
 
-body > main > section div {
-    margin-top: 2em;
+a {
+    text-decoration: none;
+    color: #434343;
 }
 
-body > main > section h2 + #author {
+body > main > section h2 + #details {
     height: 0px;
-    width: 21em;
+    width: 19em;
+    font-size: 0.8em;
+    text-align: right;
     opacity: 0;
     -webkit-transition: width 0.8s, height 1s, -webkit-transform 1s, opacity .5s ease-in;
     /* Safari */
@@ -112,20 +185,46 @@ body > main > section h2 + #author {
     transition: width 0.8s, height 1s, transform 1s, -webkit-transform 1s, opacity .5s ease-in;
 }
 
-body > main > section h2:hover + #author,
-body > main > section h2:active + #author {
+body > main > section h2:hover + #details,
+body > main > section h2:active + #details {
     height: 40px;
     opacity: 1;
 }
 
+
+
 body > main > section img {
-    width: 80vw;
+    display: block;
+    width: 6em;
     max-width: 20em;
 }
 
 body > main > section > ul {
     margin-left: 1em;
 }
+
+#single-book {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    margin-top: 1em;
+}
+
+
+
 
 
 /*Loader*/
@@ -209,5 +308,14 @@ body > main > section > ul {
         height: 23px;
         background-color: rgb(255, 255, 255);
         -webkit-transform: translateY(-20px);
+    }
+}
+
+@media screen and (min-width: 770px) {
+    #single-book {
+            -webkit-box-flex: 0;
+    -webkit-flex: 0 1 33%;
+    -ms-flex: 0 1 33%;
+    flex: 0 1 33%;
     }
 }
