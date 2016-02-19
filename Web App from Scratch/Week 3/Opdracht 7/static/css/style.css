@@ -154,13 +154,13 @@ body > main > #bestsellers > div {
 
 @-webkit-keyframes slide {
     100% {
-        left: 1em;
+        left: 0;
     }
 }
 
 @keyframes slide {
     100% {
-        left: 1em;
+        left: 0;
     }
 }
 
@@ -223,7 +223,10 @@ body > main > section > ul {
     margin-top: 1em;
 }
 
-
+.notap {
+    -ms-touch-action: none;
+    touch-action: none;
+}
 
 
 
