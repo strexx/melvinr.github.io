@@ -19,8 +19,8 @@ fShaker.ux = (function () {
 
         //function to call when shake occurs
         function shakeEventDidOccur() {
-            alert("y'ello");
-            fShaker.page.getRandomObject();
+            var something = fShaker.page.getRandomObject();
+            alert(something);
         };
     }
 
