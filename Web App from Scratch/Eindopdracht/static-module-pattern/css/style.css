@@ -58,17 +58,24 @@ main {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    padding: 1em;
+}
+
+main > h1 {
+    background: #3c89c3;
+    color: white;
+    font-size: 1.4em;
+    padding: 0.3em;
+    padding-left: 0.7em;
+    font-weight: 100;
 }
 
 section {
-    width: 100%;
+    padding: 1em;
 }
 
 main img {
     width: 100%;
     max-width: 80em;
-/*    width: 100vw;*/
 }
 
 
