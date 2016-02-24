@@ -42,6 +42,7 @@ fShaker.page = (function () {
         myButton.addEventListener('click', function () {
             getRandomObject();
         })
+        fShaker.ux.shake();
 
     }
 
