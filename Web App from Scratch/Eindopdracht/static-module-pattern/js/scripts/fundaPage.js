@@ -28,7 +28,7 @@ fShaker.page = (function () {
         function myFunction() {
             return Math.floor(Math.random() * 24 + 1);
         }
-
+        alert("hoiikwerk");
         var me = myFunction();
         var myHouseObject = houseObjects[me];
 

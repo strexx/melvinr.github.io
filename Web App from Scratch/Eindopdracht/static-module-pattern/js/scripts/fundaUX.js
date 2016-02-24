@@ -19,7 +19,7 @@ fShaker.ux = (function () {
 
         //function to call when shake occurs
         function shakeEventDidOccur() {
-            alert("something");
+            fShaker.page.getRandomObject();
         };
     }
 
