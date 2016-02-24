@@ -43,7 +43,6 @@ fShaker.page = (function () {
             getRandomObject();
         })
 
-        fShaker.ux.myShake();
     }
 
     function initHouse(_data) {
