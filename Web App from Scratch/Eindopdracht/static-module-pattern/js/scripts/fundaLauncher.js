@@ -7,7 +7,7 @@ fShaker.launcher = (function () {
         init: () =>  {
 //            fShaker.ux.loader(true);
             fShaker.api.getLocation();
-            fShaker.ux.shake();
+            fShaker.ux.myShake();
 
         }
     }

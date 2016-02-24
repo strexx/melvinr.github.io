@@ -15,7 +15,7 @@ fShaker.ux = (function () {
         });
     }
 
-    function shake() {
+    function shakeMe() {
         var myShakeEvent = new Shake({
             threshold: 15, // optional shake strength threshold
             timeout: 1000 // optional, determines the frequency of event generation
@@ -27,7 +27,7 @@ fShaker.ux = (function () {
 
         //function to call when shake occurs
         function shakeEventDidOccur() {
-            console.log("hoi");
+            alert("hoi");
         };
     }
 
@@ -42,7 +42,7 @@ fShaker.ux = (function () {
 
     return {
         gestures: swipeBack,
-        shake: shake
+        shakeMe: shakeMe
 //        loader: loader
     }
 })();
