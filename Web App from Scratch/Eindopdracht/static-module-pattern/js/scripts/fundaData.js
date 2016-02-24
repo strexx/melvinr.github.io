@@ -27,14 +27,8 @@ fShaker.api = (function () {
             var _gpsToCity = ['http://nominatim.openstreetmap.org/reverse?format=json&lat=', '&lon='],
                 lat = position.coords.latitude,
                 lon = position.coords.longitude,
-//                lat = 51.498796,
-//                lon = 3.610998,
                 _zoom = '&zoom=13&addressdetails=1',
                 fullCityUrl = _gpsToCity[0] + lat + _gpsToCity[1] + lon + _zoom;
-            
-            alert(lat);
-            alert(lon);
-            console.log(fullCityUrl);
 
 
 
@@ -57,8 +51,7 @@ fShaker.api = (function () {
         }
 
         function apiRequest() {
-//            _searchQuery = localStorage.getItem('location');
-            _searchQuery = city;
+            _searchQuery = localStorage.getItem('location');
             
             var _objectData = ['http://funda.kyrandia.nl/feeds/Aanbod.svc/', '/', '/?type=koop&zo=/', '/&page=', '&pagesize='],
                 _fullAPIUrl = _objectData[0] + _dataType + _objectData[1] + _apiKey + _objectData[2] + _searchQuery + _objectData[3] + _pageNumber + _objectData[4] + _pageSize;
