@@ -29,6 +29,9 @@ fShaker.api = (function () {
                 lon = position.coords.longitude,
                 _zoom = '&zoom=13&addressdetails=1',
                 fullCityUrl = _gpsToCity[0] + lat + _gpsToCity[1] + lon + _zoom;
+            
+            alert(lat);
+            alert(lon);
 
 
 
