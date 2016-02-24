@@ -25,10 +25,10 @@ fShaker.api = (function () {
 
         function displayPosition(position) {
             var _gpsToCity = ['http://nominatim.openstreetmap.org/reverse?format=json&lat=', '&lon='],
-//                lat = position.coords.latitude,
-//                lon = position.coords.longitude,
-                lat = 51.498796,
-                lon = 3.610998,
+                lat = position.coords.latitude,
+                lon = position.coords.longitude,
+//                lat = 51.498796,
+//                lon = 3.610998,
                 _zoom = '&zoom=13&addressdetails=1',
                 fullCityUrl = _gpsToCity[0] + lat + _gpsToCity[1] + lon + _zoom;
             
