@@ -42,7 +42,7 @@ fShaker.ux = (function () {
 
     return {
         gestures: swipeBack,
-        myShake: shakeMe
+        shakeMe: shakeMe
 //        loader: loader
     }
 })();
