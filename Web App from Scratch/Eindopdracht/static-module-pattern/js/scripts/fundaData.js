@@ -32,6 +32,7 @@ fShaker.api = (function () {
             
             alert(lat);
             alert(lon);
+            alert(fullCityUrl);
 
 
 
