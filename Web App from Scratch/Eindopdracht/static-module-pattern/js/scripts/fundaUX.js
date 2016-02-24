@@ -6,7 +6,7 @@ fShaker.ux = (function () {
 
     var _fShakerBody = document.querySelector('body');
     var _mc = new Hammer(_fShakerBody);
-    //    var _loadie = document.getElementById('loader');
+    var _loadie = document.getElementById('loader');
 
 
     function swipeBack() {
@@ -27,21 +27,22 @@ fShaker.ux = (function () {
 
         //function to call when shake occurs
         function shakeEventDidOccur() {
-            alert("HOI");
+            fShaker.page.getRandomObject()
         };
     }
 
     //    based on the advice of Lisa Klein
-    //    function loader(active) {
-    //        if (active) {
-    //            _loadie.classList.remove('inactive');
-    //        } else {
-    //            _loadie.classList.add('inactive');
-    //        }
-    //    }
+        function loader(active) {
+            if (active) {
+                _loadie.classList.remove('inactive');
+            } else {
+                _loadie.classList.add('inactive');
+            }
+        }
 
     return {
         gestures: swipeBack,
-        myShake: shakeMe
+        myShake: shakeMe,
+        loader: loader
     }
 })();

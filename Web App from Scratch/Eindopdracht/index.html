@@ -22,11 +22,19 @@
 
     <main>
 
+        <section id="loader" class="inactive">
+            <!--Loader is created from http://cssload.net-->
+            <div class="bubblingG">
+                <span id="bubblingG_1"></span>
+                <span id="bubblingG_2"></span>
+                <span id="bubblingG_3"></span>
+            </div>
+        </section>
 
-        <section id="home" data-route="home" class="togglesection">
+        <section id="home" data-route="home" class="togglesection inactive">
             <h1>Dream Shaker</h1>
             <button id="mybutton">Button</button>
-            <div data-bind="Adres">Dit is uitleg over de applicatie, klik nu op de knop om een random huis te zien</div>
+            <h2 data-bind="Adres">Dit is uitleg over de applicatie, klik nu op de knop om een random huis te zien</h2>
             <img src="" data-bind="FotoLargest" id="houseImage"></img>
             <div data-bind="Prijs">
                 <div data-bind="Koopprijs"></div>
@@ -34,7 +42,7 @@
         </section>
 
         <section id="myhouse" data-route="myhouse" class="togglesection">
-<!--          <button id="mybutton">Button</button>-->
+            <!--          <button id="mybutton">Button</button>-->
             <div data-bind="Adres"></div>
             <div data-bind="Prijs">
                 <div data-bind="Koopprijs"></div>

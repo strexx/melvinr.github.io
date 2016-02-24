@@ -39,10 +39,11 @@ fShaker.page = (function () {
 
 
     function initHome(_data) {
-
         myButton.addEventListener('click', function () {
             getRandomObject();
         })
+
+        fShaker.ux.myShake();
     }
 
     function initHouse(_data) {
@@ -57,6 +58,9 @@ fShaker.page = (function () {
         //House detail page
         initHouse: {
             init: initHouse
+        },
+        getRandomObject: {
+            init: getRandomObject
         }
     }
 })();

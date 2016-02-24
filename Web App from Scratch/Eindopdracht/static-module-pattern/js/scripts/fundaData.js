@@ -64,10 +64,12 @@ fShaker.api = (function () {
                     var _data = data.Objects;
                     localStorage.setItem('houses', JSON.stringify(_data))
                     
+                    fShaker.ux.loader(false);
                     fShaker.routes.init()
                 })
                 .on('error', () => {
                     alert('Data request failed')
+                    fShaker.ux.loader(false);
                 })
                 .go();
         }
