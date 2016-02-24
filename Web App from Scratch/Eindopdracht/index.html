@@ -18,7 +18,10 @@
     </header>
     <main>
 
-        <h1>Dream Shaker</h1>
+       <div id="top-wrapper">
+            <h1>Dream Shaker</h1>
+            <button id="mybutton">Shake!</button>
+       </div>
 
         <section id="loader" class="inactive">
             <!--            Loader is created at http://cssload.net-->
@@ -30,14 +33,13 @@
         </section>
 
         <section id="home" data-route="home" class="togglesection inactive">
-            <button id="mybutton">Button</button>
             <div id="mylocation"></div>
-            <h2 data-bind="Adres">Dit is uitleg over de applicatie, klik nu op de knop om een random huis te zien</h2>
+            <h2 data-bind="Adres">Welkom bij de funda Dream Shaker!</h2>
             <img src="" data-bind="FotoLargest" id="houseImage"></img>
             <div data-bind="Prijs">
-                <div data-bind="Koopprijs"></div>
+                <div data-bind="Koopprijs">Omdat het soms overweldigend kan zijn om mooi huizen te vinden in de buurt, willen wij je helpen. Wij hebben met jouw toestemming je locatie gepakt en op basis hiervan zullen we jou mooie huizen laten zien!</div>
             </div>
-            <div data-bind="Soort-aanbod"></div>
+            <div data-bind="Soort-aanbod">Het enige wat jij nu hoeft te doen is je telefoon te schudden, of hierboven op "Shake!" te drukken!</div>
         </section>
 
         <section id="myhouse" data-route="myhouse" class="togglesection">
