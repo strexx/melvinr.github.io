@@ -37,7 +37,6 @@ fShaker.api = (function () {
                 .on('success', (data) => {
                     city = data.address.city || data.address.town
                     localStorage.setItem('location', city)
-                    alert(city)
                     apiRequest()
                 })
                 .on('error', () => {
