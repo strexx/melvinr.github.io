@@ -32,17 +32,17 @@ fShaker.ux = (function () {
     }
 
     //    based on the advice of Lisa Klein
-        function loader(active) {
-            if (active) {
-                _loadie.classList.remove('inactive');
-            } else {
-                _loadie.classList.add('inactive');
-            }
-        }
+//        function loader(active) {
+//            if (active) {
+//                _loadie.classList.remove('inactive');
+//            } else {
+//                _loadie.classList.add('inactive');
+//            }
+//        }
 
     return {
         gestures: swipeBack,
-        myShake: shakeMe,
-        loader: loader
+        myShake: shakeMe
+//        loader: loader
     }
 })();
