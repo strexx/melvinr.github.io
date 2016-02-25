@@ -122,7 +122,8 @@ main img {
     filter: brightness(0.5);
 }
 
-#home img:hover {
+#home img:hover,
+#home img:active{
     box-sizing: border-box;
     border: 10px solid #3c89c3;
     border-radius: 0 10% 0 10%;
