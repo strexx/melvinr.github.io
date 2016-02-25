@@ -8,8 +8,12 @@ body {
     min-width: 22.5em;
     height: 100vh;
     width: 100vw;
+    background: #f2f2f2;
 }
-
+#namewrapper {
+    border-bottom: 1px solid #3c89c3;
+    margin-bottom: 1em;
+}
 header {
     display: -webkit-box;
     display: -webkit-flex;
@@ -76,8 +80,8 @@ main > section h2 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
-/*    box-shadow: 0 4px 4px -2px #232323;*/
-/*    -moz-box-shadow: 0 4px 4px -2px #232323;*/
+    /*    box-shadow: 0 4px 4px -2px #232323;*/
+    /*    -moz-box-shadow: 0 4px 4px -2px #232323;*/
     -webkit-box-shadow: 0 2px 4px -2px #232323;
 }
 
@@ -107,24 +111,43 @@ main img {
     max-width: 80em;
 }
 
-.togglesection {
+#home img {
+    cursor:pointer;
+    box-sizing: border-box;
+    border: 0px solid #3c89c3;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+    border-radius: 10% 0 10% 0;
+    -webkit-filter: brightness(0.5);
+    filter: brightness(0.5);
+}
+
+#home img:hover {
+    box-sizing: border-box;
+    border: 10px solid #3c89c3;
+    border-radius: 0 10% 0 10%;
+    -webkit-filter: brightness(1);
+    filter: brightness(1);
+}
+
+.fadeIn {
     max-width: 30em;
     opacity: 0;
-    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation: fade-in 0.5s forwards;
     -webkit-animation-delay: 1s;
-    -webkit-animation: slide 0.5s forwards;
-    animation: slide 0.5s forwards;
+    -webkit-animation: fade-in 0.5s forwards;
+    animation: fade-in 0.5s forwards;
     -webkit-animation-delay: 0.6s;
     animation-delay: 0.6s;
 }
 
-@-webkit-keyframes slide {
+@-webkit-keyframes fade-in {
     100% {
         opacity: 1;
     }
 }
 
-@keyframes slide {
+@keyframes fade-in {
     100% {
         opacity: 1;
     }
@@ -136,7 +159,70 @@ main img {
 
 
 /*Loader*/
+#shake-logo {
+    width: 7em;
+    margin: 0 auto;
+}
 
+#loader {
+    text-align: center;
+    width: 100%;
+    -webkit-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both infinite;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+}
+
+@-webkit-keyframes shake {
+  10%, 90% {
+    -webkit-transform: translate3d(-1px, 0, 0);
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    -webkit-transform: translate3d(2px, 0, 0);
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    -webkit-transform: translate3d(-4px, 0, 0);
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    -webkit-transform: translate3d(4px, 0, 0);
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    -webkit-transform: translate3d(-1px, 0, 0);
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    -webkit-transform: translate3d(2px, 0, 0);
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    -webkit-transform: translate3d(-4px, 0, 0);
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    -webkit-transform: translate3d(4px, 0, 0);
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+
+/*
 .bubblingG {
     text-align: center;
     width: 78px;
@@ -217,4 +303,27 @@ main img {
         background-color: rgb(255, 255, 255);
         -webkit-transform: translateY(-20px);
     }
+}*/
+
+
+.fade-in {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation: growHeight 0.2s ease forwards;
+    animation: growHeight 0.2s ease forwards;
 }
+
+@-webkit-keyframes growHeight {
+    to {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes growHeight {
+    to {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }

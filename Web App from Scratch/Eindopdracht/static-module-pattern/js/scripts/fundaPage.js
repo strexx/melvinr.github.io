@@ -6,6 +6,7 @@ fShaker.page = (function () {
     var _home = document.querySelector('[data-route="home"]'),
         _myHouse = document.querySelector('[data-route="myhouse"]'),
         myButton = document.getElementById('mybutton'),
+        detailLink = document.getElementById('detail-link'),
         _directives = {
             FotoLargest: {
                 src: function () {
@@ -17,8 +18,18 @@ fShaker.page = (function () {
                     text: function () {
                         return '€' + this.Koopprijs;
                     }
+                },
+            },
+            AantalKamers: {
+                text: function () {
+                    return 'Aantal kamers: ' + this.AantalKamers;
                 }
-            }
+            },
+            HoofdFotoSecure: {
+                src: function () {
+                    return this.HoofdFotoSecure;
+                }
+            },
         },
         retrievedObject = localStorage.getItem('houses'),
         houseObjects = JSON.parse(retrievedObject);
@@ -30,34 +41,40 @@ fShaker.page = (function () {
         }
         var me = myFunction();
         var myHouseObject = houseObjects[me];
+        console.log(myHouseObject);
+
+        localStorage.setItem('homeaddress', myHouseObject.Adres);
+        localStorage.setItem('uniqueid', myHouseObject.GroupByObjectType)
 
         Transparency.render(_home, myHouseObject, _directives);
     }
 
 
-
-
-    function initHome(_data) {
+    function initHome() {
         myButton.addEventListener('click', function () {
             getRandomObject();
         })
+        detailLink.addEventListener('click', function () {
+            fShaker.api.objectDetail();
+        })
         fShaker.ux.shake();
-
     }
 
-    function initHouse(_data) {
-        Transparency.render(_myHouse, myHouseObject);
+    function initHouse() {
+        console.log("dit is je detailpaginaswa");
+        var detailHouseData = localStorage.getItem('myhouse'),
+            detailHouse = JSON.parse(detailHouseData);
+        var addressData = localStorage.getItem('homeaddress');
+        document.getElementById('adresje').innerHTML = addressData;
+        Transparency.render(_myHouse, detailHouse, _directives)
+            //        Transparency.render(_myHouse, myHouseObject);
     }
 
     //public
     return {
-        initHome: {
-            init: initHome
-        },
+        initHome: initHome,
         //House detail page
-        initHouse: {
-            init: initHouse
-        },
+        initHouse: initHouse,
         getRandomObject: getRandomObject
     }
 })();

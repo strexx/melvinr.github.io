@@ -19,36 +19,53 @@
     </header>
     <main>
 
-       <div id="top-wrapper">
+        <div id="top-wrapper">
             <h1>Dream Shaker</h1>
             <button id="mybutton">Shake!</button>
-       </div>
+        </div>
 
+
+        <!--
         <section id="loader" class="inactive">
-            <!--            Loader is created at http://cssload.net-->
+                        Loader is created at http://cssload.net
             <div class="bubblingG">
                 <span id="bubblingG_1"></span>
                 <span id="bubblingG_2"></span>
                 <span id="bubblingG_3"></span>
             </div>
         </section>
+-->
 
-        <section id="home" data-route="home" class="togglesection inactive">
-            <div id="mylocation"></div>
-            <h2 data-bind="Adres">Welkom bij de funda Dream Shaker!</h2>
-            <img src="" data-bind="FotoLargest" id="houseImage"></img>
-            <div data-bind="Prijs">
-                <div data-bind="Koopprijs">Omdat het soms overweldigend kan zijn om mooi huizen te vinden in de buurt, willen wij je helpen. Wij hebben met jouw toestemming je locatie gepakt en op basis hiervan zullen we jou mooie huizen laten zien!</div>
-            </div>
-            <div data-bind="Soort-aanbod">Het enige wat jij nu hoeft te doen is je telefoon te schudden, of hierboven op "Shake!" te drukken!</div>
+        <section id="loader" class="inactive">
+            <img src="static-module-pattern/images/fundashake-mockup.png" id="shake-logo">
         </section>
 
-        <section id="myhouse" data-route="myhouse" class="togglesection">
-            <!--          <button id="mybutton">Button</button>-->
-            <div data-bind="Adres"></div>
+        <section id="home" data-route="home" class="togglesection fade-in inactive">
+            <h2 data-bind="Adres">Welkom bij de funda Dream Shaker!</h2>
+            <a id="detail-link" href="#myhouse"><img src="" data-bind="FotoLargest" id="houseImage"></img>
+            </a>
             <div data-bind="Prijs">
-                <div data-bind="Koopprijs"></div>
+                <p data-bind="Koopprijs">Omdat het soms overweldigend kan zijn om mooie huizen te vinden in de buurt, willen wij je helpen. Wij hebben met jouw toestemming je locatie gepakt en op basis hiervan zullen we jou mooie huizen laten zien!</p>
             </div>
+            <p data-bind="Soort-aanbod" class="bluetype">Het enige wat jij nu hoeft te doen is je telefoon te schudden, of hierboven op "Shake!" te drukken!</p>
+        </section>
+
+        <section id="myhouse" data-route="myhouse" class="togglesection fadeIn inactive">
+            <div id="namewrapper">
+                <h1 id="adresje">Welkom bij de funda Dream Shaker!</h1>
+                <span data-bind="Postcode"></span>
+            </div>
+            <img src="" data-bind="HoofdFotoSecure" id="houseImage"></img>
+            <p data-bind="AantalKamers"></p>
+            <div data-bind="Prijs">
+                <p data-bind="Koopprijs"></p>
+            </div>
+            <p data-bind="AangebodenSindsTekst"></p>
+            <p data-bind="AantalSlaapkamers"></p>
+            <p data-bind="Bouwjaar"></p>
+            <p data-bind="Cv"></p>
+
+            <p data-bind="Ligging"></p>
         </section>
     </main>
 </body>

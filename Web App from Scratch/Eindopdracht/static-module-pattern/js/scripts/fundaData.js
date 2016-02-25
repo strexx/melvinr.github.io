@@ -3,15 +3,13 @@ var fShaker = fShaker || {};
 
 fShaker.api = (function () {
 
-    var getLocation = function () {
+    var _dataType = 'json',
+        _apiKey = 'e2d60e885b8742d4b0648300e3703bd7',
+        _searchQuery = localStorage.getItem('location'),
+        _pageNumber = 1,
+        _pageSize = 25;
 
-        var _dataType = 'json',
-            _apiKey = 'e2d60e885b8742d4b0648300e3703bd7',
-            _searchQuery,
-            _pageNumber = 1,
-            _pageSize = 25;
-
-        var _city;
+    function getLocation() {
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
@@ -37,7 +35,7 @@ fShaker.api = (function () {
                 .on('success', (data) => {
                     city = data.address.city || data.address.town
                     localStorage.setItem('location', city)
-                    apiRequest()
+                    fShaker.api.getData()
                 })
                 .on('error', () => {
                     alert('Location request failed')
@@ -49,31 +47,57 @@ fShaker.api = (function () {
             console.log('an error has occured');
         }
 
-        function apiRequest() {
-            _searchQuery = localStorage.getItem('location');
-            
-            var _objectData = ['http://funda.kyrandia.nl/feeds/Aanbod.svc/', '/', '/?type=koop&zo=/', '/&page=', '&pagesize='],
-                _fullAPIUrl = _objectData[0] + _dataType + _objectData[1] + _apiKey + _objectData[2] + _searchQuery + _objectData[3] + _pageNumber + _objectData[4] + _pageSize;
+    }
 
-            
-            aja()
-                .url(_fullAPIUrl)
-                .on('success', (data) => {
-                
-                    var _data = data.Objects;
-                    localStorage.setItem('houses', JSON.stringify(_data))
-                    
-                    fShaker.ux.loader(false);
-                    fShaker.routes.init()
-                })
-                .on('error', () => {
-                    alert('Data request failed')
-                    fShaker.ux.loader(false);
-                })
-                .go();
-        }
+    function apiRequest() {
+
+        var _objectData = ['http://funda.kyrandia.nl/feeds/Aanbod.svc/', '/', '/?type=koop&zo=/', '/&page=', '&pagesize='],
+            _fullAPIUrl = _objectData[0] + _dataType + _objectData[1] + _apiKey + _objectData[2] + _searchQuery + _objectData[3] + _pageNumber + _objectData[4] + _pageSize;
+
+
+        aja()
+            .url(_fullAPIUrl)
+            .on('success', (data) => {
+
+                var _data = data.Objects;
+                localStorage.setItem('houses', JSON.stringify(_data))
+
+                fShaker.ux.loader(false);
+                fShaker.routes.init()
+            })
+            .on('error', () => {
+                alert('Data request failed')
+                fShaker.ux.loader(false);
+            })
+            .go();
+    }
+
+    function objectDetail() {
+        var _objectGUID = localStorage.getItem('uniqueid'),
+            _detailData = ['http://funda.kyrandia.nl/feeds/Aanbod.svc/', '/', 'detail/', '/koop/'],
+            _fullDetailUrl = _detailData[0] + _dataType + _detailData[1] + _detailData[2] + _apiKey + _detailData[3] + _objectGUID;
+
+        //        console.log(_fullDetailUrl);
+
+        aja()
+            .url(_fullDetailUrl)
+            .on('success', (data) => {
+
+                var _data = data;
+                console.log(_data);
+                localStorage.setItem('myhouse', JSON.stringify(_data))
+
+                fShaker.ux.loader(false);
+            })
+            .on('error', () => {
+                alert('Data request failed')
+                fShaker.ux.loader(false);
+            })
+            .go();
     }
     return {
-        getLocation: getLocation
+        getLocation: getLocation,
+        getData: apiRequest,
+        objectDetail: objectDetail
     }
 })();

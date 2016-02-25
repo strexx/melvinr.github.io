@@ -13,12 +13,12 @@ fShaker.routes = (function () {
         routie({
             'home': () => {
                 console.log("dit is home");
-                fShaker.page.initHome.init();
+                fShaker.page.initHome();
                 fShaker.routes.toggle(location.hash)
             },
             'myhouse': () => {
                 //slice is to delete bestsellersdetail/ from the hash, so the queryselector will work
-                fShaker.page.initHouse.init();
+                fShaker.page.initHouse();
                 fShaker.routes.toggle(location.hash);
             },
             '*': () => {
