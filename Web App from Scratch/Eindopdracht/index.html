@@ -40,14 +40,14 @@
             <img src="static-module-pattern/images/fundashake-mockup.png" id="shake-logo">
         </section>
 
-        <section id="home" data-route="home" class="togglesection fade-in inactive">
+        <section id="home" data-route="home" class="togglesection growFade inactive">
             <h2 data-bind="Adres">Welkom bij de funda Dream Shaker!</h2>
-            <a id="detail-link" href="#myhouse"><img src="" data-bind="FotoLargest" id="houseImage"></img>
+            <a id="detail-link" href="#myhouse" class="inactive"><img src="" data-bind="FotoLargest" id="houseImage"></img>
             </a>
+            <p data-bind="moreinfo">Omdat het soms overweldigend kan zijn om mooie huizen te vinden in de buurt, willen wij je helpen. Wij hebben met jouw toestemming je locatie gepakt en op basis hiervan zullen we jou mooie huizen laten zien.</p>
             <div data-bind="Prijs">
-                <p data-bind="Koopprijs">Omdat het soms overweldigend kan zijn om mooie huizen te vinden in de buurt, willen wij je helpen. Wij hebben met jouw toestemming je locatie gepakt en op basis hiervan zullen we jou mooie huizen laten zien!</p>
+                <p data-bind="Koopprijs">Het enige wat jij nu hoeft te doen is je telefoon te schudden, of hierboven op "Shake!" te drukken!</p>
             </div>
-            <p data-bind="Soort-aanbod" class="bluetype">Het enige wat jij nu hoeft te doen is je telefoon te schudden, of hierboven op "Shake!" te drukken!</p>
         </section>
 
         <section id="myhouse" data-route="myhouse" class="togglesection fadeIn inactive">
@@ -56,16 +56,19 @@
                 <span data-bind="Postcode"></span>
             </div>
             <img src="" data-bind="HoofdFotoSecure" id="houseImage"></img>
-            <p data-bind="AantalKamers"></p>
-            <div data-bind="Prijs">
-                <p data-bind="Koopprijs"></p>
-            </div>
-            <p data-bind="AangebodenSindsTekst"></p>
-            <p data-bind="AantalSlaapkamers"></p>
-            <p data-bind="Bouwjaar"></p>
-            <p data-bind="Cv"></p>
+            <div id="detailInfoWrapper">
+                <p data-bind="Ligging"></p>
+                <p data-bind="AantalKamers" class="grey"></p>
+                <div data-bind="Prijs">
+                    <p data-bind="Koopprijs"></p>
+                </div>
+                <p data-bind="AangebodenSindsTekst" class="grey"></p>
+                <p data-bind="AantalSlaapkamers"></p>
+                <p data-bind="Bouwjaar"></p>
 
-            <p data-bind="Ligging"></p>
+            </div>
+            <h3>Volledige omschrijving</h3>
+            <p data-bind="VolledigeOmschrijving"></p>
         </section>
     </main>
 </body>

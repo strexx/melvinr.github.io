@@ -5,8 +5,8 @@ fShaker.page = (function () {
     //private
     var _home = document.querySelector('[data-route="home"]'),
         _myHouse = document.querySelector('[data-route="myhouse"]'),
-        myButton = document.getElementById('mybutton'),
-        detailLink = document.getElementById('detail-link'),
+        _myButton = document.getElementById('mybutton'),
+        _detailLink = document.getElementById('detail-link'),
         _directives = {
             FotoLargest: {
                 src: function () {
@@ -16,7 +16,7 @@ fShaker.page = (function () {
             Prijs: {
                 Koopprijs: {
                     text: function () {
-                        return '€' + this.Koopprijs;
+                        return 'Koopprijs: €' + this.Koopprijs;
                     }
                 },
             },
@@ -30,6 +30,21 @@ fShaker.page = (function () {
                     return this.HoofdFotoSecure;
                 }
             },
+            moreinfo: {
+                text: function () {
+                    return 'Meer informatie? Klik op de foto!'
+                }
+            },
+            Ligging: {
+                text: function() {
+                    return 'Gelegen ' + this.Ligging;
+                }
+            },
+            Bouwjaar: {
+                text: function() {
+                    return 'Bouwjaar: ' + this.Bouwjaar;
+                }
+            }
         },
         retrievedObject = localStorage.getItem('houses'),
         houseObjects = JSON.parse(retrievedObject);
@@ -46,15 +61,17 @@ fShaker.page = (function () {
         localStorage.setItem('homeaddress', myHouseObject.Adres);
         localStorage.setItem('uniqueid', myHouseObject.GroupByObjectType)
 
+        _detailLink.classList.remove('inactive');
+
         Transparency.render(_home, myHouseObject, _directives);
     }
 
 
     function initHome() {
-        myButton.addEventListener('click', function () {
+        _myButton.addEventListener('click', function () {
             getRandomObject();
         })
-        detailLink.addEventListener('click', function () {
+        _detailLink.addEventListener('click', function () {
             fShaker.api.objectDetail();
         })
         fShaker.ux.shake();
