@@ -17,12 +17,13 @@
         <img src="static-module-pattern/images/logo-funda.png" alt="logo" id="logo-funda">
         <h1>Dream Shaker</h1>
     </header>
-    <main>
 
+    <main>
         <div id="top-wrapper">
             <h1>Dream Shaker</h1>
-            <button id="mybutton">Shake!</button>
+            <button id="shakeBtn">Shake!</button>
         </div>
+        
         <section id="loader" class="inactive">
             <img src="static-module-pattern/images/fundashake-mockup.png" id="shake-logo">
         </section>
@@ -39,7 +40,7 @@
 
         <section id="myhouse" data-route="myhouse" class="togglesection fadeIn inactive">
             <div id="namewrapper">
-                <h1 id="adresje">Welkom bij de funda Dream Shaker!</h1>
+                <h1 id="obj-address">Welkom bij de funda Dream Shaker!</h1>
                 <span data-bind="Postcode"></span>
             </div>
             <img src="" data-bind="HoofdFotoSecure" id="houseImage"></img>
@@ -52,8 +53,8 @@
                 <p data-bind="AangebodenSindsTekst" class="grey"></p>
                 <p data-bind="AantalSlaapkamers"></p>
                 <p data-bind="Bouwjaar"></p>
-
             </div>
+            
             <h3>Volledige omschrijving</h3>
             <p data-bind="VolledigeOmschrijving"></p>
         </section>

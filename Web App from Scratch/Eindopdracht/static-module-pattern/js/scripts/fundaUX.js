@@ -9,15 +9,15 @@ fShaker.ux = (function () {
     
     function shake() {
         var myShakeEvent = new Shake({
-            threshold: 15, // optional shake strength threshold
-            timeout: 1000 // optional, determines the frequency of event generation
+            threshold: 15,
+            timeout: 1000
         });
 
         myShakeEvent.start();
 
         window.addEventListener('shake', shakeEventDidOccur, false);
 
-        //function to call when shake occurs
+        //If shake occurs, get a random object and render it
         function shakeEventDidOccur() {
             fShaker.page.getRandomObject();
         };

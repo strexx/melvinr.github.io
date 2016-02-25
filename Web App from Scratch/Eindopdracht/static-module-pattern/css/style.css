@@ -16,15 +16,6 @@ body {
     margin-bottom: 0.2em;
 }
 
-[data-bind="VolledigeOmschrijving"],
-.grey{
-    color: rgba(0, 0, 0, 0.7)
-}
-
-#namewrapper {
-    border-bottom: 1px solid #3c89c3;
-    margin-bottom: 1em;
-}
 header {
     display: -webkit-box;
     display: -webkit-flex;
@@ -123,7 +114,7 @@ main img {
 }
 
 #home img {
-    cursor:pointer;
+    cursor: pointer;
     box-sizing: border-box;
     border-radius: 0 10% 0 10%;
     -webkit-transition: all 0.7s ease;
@@ -133,17 +124,26 @@ main img {
 }
 
 #home img:hover,
-#home img:active{
+#home img:active {
     box-sizing: border-box;
     -webkit-filter: brightness(0.5);
     filter: brightness(0.5);
     border-radius: 10% 0 10% 0;
 }
 
+[data-bind="VolledigeOmschrijving"],
+.grey {
+    color: rgba(0, 0, 0, 0.7)
+}
+
+#namewrapper {
+    border-bottom: 1px solid #3c89c3;
+    margin-bottom: 1em;
+}
+
 #detailInfoWrapper {
     color: #3c89c3;
     margin-bottom: 1em;
-
 }
 
 .fadeIn {
@@ -175,6 +175,7 @@ main img {
 
 
 /*Loader*/
+
 #shake-logo {
     width: 7em;
     margin: 0 auto;
@@ -194,47 +195,51 @@ main img {
 }
 
 @-webkit-keyframes shake {
-  10%, 90% {
-    -webkit-transform: translate3d(-1px, 0, 0);
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    -webkit-transform: translate3d(2px, 0, 0);
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    -webkit-transform: translate3d(-4px, 0, 0);
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    -webkit-transform: translate3d(4px, 0, 0);
-    transform: translate3d(4px, 0, 0);
-  }
+    10%,
+    90% {
+        -webkit-transform: translate3d(-1px, 0, 0);
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        -webkit-transform: translate3d(2px, 0, 0);
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        -webkit-transform: translate3d(-4px, 0, 0);
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        -webkit-transform: translate3d(4px, 0, 0);
+        transform: translate3d(4px, 0, 0);
+    }
 }
 
 @keyframes shake {
-  10%, 90% {
-    -webkit-transform: translate3d(-1px, 0, 0);
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    -webkit-transform: translate3d(2px, 0, 0);
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    -webkit-transform: translate3d(-4px, 0, 0);
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    -webkit-transform: translate3d(4px, 0, 0);
-    transform: translate3d(4px, 0, 0);
-  }
+    10%,
+    90% {
+        -webkit-transform: translate3d(-1px, 0, 0);
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        -webkit-transform: translate3d(2px, 0, 0);
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        -webkit-transform: translate3d(-4px, 0, 0);
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        -webkit-transform: translate3d(4px, 0, 0);
+        transform: translate3d(4px, 0, 0);
+    }
 }
 
 .growFade {

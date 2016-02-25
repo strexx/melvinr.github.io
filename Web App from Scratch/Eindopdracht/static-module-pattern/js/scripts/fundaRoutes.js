@@ -9,15 +9,14 @@ fShaker.routes = (function () {
     var _sections = document.querySelectorAll('.togglesection');
     var i;
 
+    //Check the current hash and execute the right page initializations linked to this hash. Also display the correct pages by executing toggle.
     function routers(_data) {
         routie({
             'home': () => {
-                console.log("dit is home");
                 fShaker.page.initHome();
                 fShaker.routes.toggle(location.hash)
             },
             'myhouse': () => {
-                //slice is to delete bestsellersdetail/ from the hash, so the queryselector will work
                 fShaker.page.initHouse();
                 fShaker.routes.toggle(location.hash);
             },
@@ -30,7 +29,7 @@ fShaker.routes = (function () {
     function toggle(route) {
         for (i = 0; i < _sections.length; i++) {
             _sections[i].classList.add('inactive');
-            //If there is no hash, make every section visible, in case JS is disabled.
+
             if (!route) {
                 _sections[0].classList.remove('inactive');
             } else {

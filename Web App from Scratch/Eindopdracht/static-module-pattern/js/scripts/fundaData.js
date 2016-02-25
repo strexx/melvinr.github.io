@@ -9,8 +9,10 @@ fShaker.api = (function () {
         _pageNumber = 1,
         _pageSize = 25;
 
-    function getLocation() {
 
+    //Get latitude and longitude and through OSM api request get the name of the city
+
+    function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 displayPosition,
@@ -27,14 +29,13 @@ fShaker.api = (function () {
                 lon = position.coords.longitude,
                 _zoom = '&zoom=13&addressdetails=1',
                 fullCityUrl = _gpsToCity[0] + lat + _gpsToCity[1] + lon + _zoom;
-
-
-
+            
             aja()
                 .url(fullCityUrl)
                 .on('success', (data) => {
                     city = data.address.city || data.address.town
                     localStorage.setItem('location', city)
+                        //execute api request to get objects from current city
                     fShaker.api.getData()
                 })
                 .on('error', () => {
@@ -49,12 +50,12 @@ fShaker.api = (function () {
 
     }
 
+    //Request to Funda Object api to get objects from current city
+
+    var _objectData = ['http://funda.kyrandia.nl/feeds/Aanbod.svc/', '/', '/?type=koop&zo=/', '/&page=', '&pagesize='],
+        _fullAPIUrl = _objectData[0] + _dataType + _objectData[1] + _apiKey + _objectData[2] + _searchQuery + _objectData[3] + _pageNumber + _objectData[4] + _pageSize;
+
     function apiRequest() {
-
-        var _objectData = ['http://funda.kyrandia.nl/feeds/Aanbod.svc/', '/', '/?type=koop&zo=/', '/&page=', '&pagesize='],
-            _fullAPIUrl = _objectData[0] + _dataType + _objectData[1] + _apiKey + _objectData[2] + _searchQuery + _objectData[3] + _pageNumber + _objectData[4] + _pageSize;
-
-
         aja()
             .url(_fullAPIUrl)
             .on('success', (data) => {
@@ -63,6 +64,7 @@ fShaker.api = (function () {
                 localStorage.setItem('houses', JSON.stringify(_data))
 
                 fShaker.ux.loader(false);
+                //Execute routes to check for current hash
                 fShaker.routes.init()
             })
             .on('error', () => {
@@ -72,19 +74,18 @@ fShaker.api = (function () {
             .go();
     }
 
+    
+    //Request to object detail api to get more detailed information about an object(house)
+    var _objectGUID = localStorage.getItem('uniqueid'),
+        _detailData = ['http://funda.kyrandia.nl/feeds/Aanbod.svc/', '/', 'detail/', '/koop/'],
+        _fullDetailUrl = _detailData[0] + _dataType + _detailData[1] + _detailData[2] + _apiKey + _detailData[3] + _objectGUID;
+
     function objectDetail() {
-        var _objectGUID = localStorage.getItem('uniqueid'),
-            _detailData = ['http://funda.kyrandia.nl/feeds/Aanbod.svc/', '/', 'detail/', '/koop/'],
-            _fullDetailUrl = _detailData[0] + _dataType + _detailData[1] + _detailData[2] + _apiKey + _detailData[3] + _objectGUID;
-
-        //        console.log(_fullDetailUrl);
-
         aja()
             .url(_fullDetailUrl)
             .on('success', (data) => {
 
                 var _data = data;
-                console.log(_data);
                 localStorage.setItem('myhouse', JSON.stringify(_data))
 
                 fShaker.ux.loader(false);

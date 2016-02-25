@@ -5,7 +5,7 @@ fShaker.page = (function () {
     //private
     var _home = document.querySelector('[data-route="home"]'),
         _myHouse = document.querySelector('[data-route="myhouse"]'),
-        _myButton = document.getElementById('mybutton'),
+        shakeBtn = document.getElementById('shakeBtn'),
         _detailLink = document.getElementById('detail-link'),
         _directives = {
             FotoLargest: {
@@ -47,16 +47,20 @@ fShaker.page = (function () {
             }
         },
         retrievedObject = localStorage.getItem('houses'),
-        houseObjects = JSON.parse(retrievedObject);
+        houseObjects = JSON.parse(retrievedObject),
+        _detailHouseData = localStorage.getItem('myhouse'),
+        _detailHouse = JSON.parse(_detailHouseData),
+        _addressData = localStorage.getItem('homeaddress'),
+        _objAddress = document.getElementById('obj-address');
 
 
+    //Function to get a random object its data and add the necessary things to localstorage. Then renders the 'home' page with the right data
     function getRandomObject() {
         function myFunction() {
             return Math.floor(Math.random() * 24 + 1);
         }
         var me = myFunction();
         var myHouseObject = houseObjects[me];
-        console.log(myHouseObject);
 
         localStorage.setItem('homeaddress', myHouseObject.Adres);
         localStorage.setItem('uniqueid', myHouseObject.GroupByObjectType)
@@ -67,8 +71,9 @@ fShaker.page = (function () {
     }
 
 
+    //Call the function above when the shake button is clicked. Perform objectDetail api request when image is clicked. Also execute the shake event.
     function initHome() {
-        _myButton.addEventListener('click', function () {
+        shakeBtn.addEventListener('click', function () {
             getRandomObject();
         })
         _detailLink.addEventListener('click', function () {
@@ -77,21 +82,17 @@ fShaker.page = (function () {
         fShaker.ux.shake();
     }
 
+    //Change the html of the detail page's h1 to the correct one, also render 'myhouse' template with the right data.
     function initHouse() {
-        console.log("dit is je detailpaginaswa");
-        var detailHouseData = localStorage.getItem('myhouse'),
-            detailHouse = JSON.parse(detailHouseData);
-        var addressData = localStorage.getItem('homeaddress');
-        document.getElementById('adresje').innerHTML = addressData;
-        Transparency.render(_myHouse, detailHouse, _directives)
-            //        Transparency.render(_myHouse, myHouseObject);
+        _objAddress.innerHTML = _addressData;
+        
+        Transparency.render(_myHouse, _detailHouse, _directives)
     }
 
     //public
     return {
         initHome: initHome,
         //House detail page
-        initHouse: initHouse,
-        getRandomObject: getRandomObject
+        initHouse: initHouse
     }
 })();
