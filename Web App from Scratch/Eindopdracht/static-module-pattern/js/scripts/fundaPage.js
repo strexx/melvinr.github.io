@@ -91,6 +91,7 @@ fShaker.page = (function () {
 
     //public
     return {
+        getObject: getRandomObject,
         initHome: initHome,
         //House detail page
         initHouse: initHouse
