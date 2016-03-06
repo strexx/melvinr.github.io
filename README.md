@@ -16,5 +16,7 @@ I will use this repository to post projects I created during my minor.
 
 [Web App From Scratch, week 3](http://melvinr.github.io/Web%20App%20from%20Scratch/Week%203/Opdracht%207/index.html)
 
+[Web App From Scratch, Funda Eindopdracht](http://melvinr.github.io/Web%20App%20from%20Scratch/Eindopdracht/index.html)
+
 
 [Weekly Nerd](https://melvinweeklynerd.wordpress.com)
