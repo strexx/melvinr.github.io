@@ -28,6 +28,17 @@ When it comes to response times there are 3 important limits. 1. When it takes u
 
 One downside on the shaker app is that you can actually see images rendering on the website. A way to fix this could be to render the images off screen, and have them transition into screen when it's done. This is of course only a good thing when the images don't take too long to load. Otherwise you will have to provide the user with feedback that loading is slow.
 
+##Feature 5 - Cookies & localStorage
+On the three big modern browsers (Chrome, Firefox and Safari) cookies and localStorage are partially treated the same. When cookies are blocked, localStorage is blocked as well. This behaviour can be a bad thing for websites or webapps, since some websites use localStorage to store data. Funda Shaker is no different, and works like this: a loader is shown when the application starts. It will try to get data from an api and store this in localStorage, then it will get this data from localStorage and render it to the correct HTML elements. By blocking cookies and/or localStorage the application will be in a loading loop from which it cannot escape. It is important to create fallbacks for this data to load when localStorage is not available. You can do this by  rendering the templates using http requests.
+
+##Feature 6 - Mouse/trackpad doesn't work
+It's also important to take into account how your website works without a mouse or trackpad. Some people browse websites using their keyboard, so you have to provide them with a way to this this. Funda Shaker still works perfectly without a mouse or trackpad. Allowing users to tab between the important elements on the page (like buttons or links).
+
+##Feature 7 - Wifi Hotspots
+When using wifi hotspots you put yourself at risk. Some wifi hotspots inject your website with a script containing ads or worse. An easy fix for this is to serve your website using https instead of http. Funda shaker is currently served on http and should, for security's sake, be served using https. Making it safe to use on wifi hotspots
+
+
+
 
 
 
