@@ -38,6 +38,16 @@ It's also important to take into account how your website works without a mouse 
 When using wifi hotspots you put yourself at risk. Some wifi hotspots inject your website with a script containing ads or worse. An easy fix for this is to serve your website using https instead of http. Funda shaker is currently served on http and should, for security's sake, be served using https. Making it safe to use on wifi hotspots
 
 
+#Screenreader
+##Header
+When going through Funda Shaker with a screenreader, you will notice that its main functionality stays intact. It recognizes the Shake button and gives feedback on what it is.
+
+The logo should be given a link to the homepage. This gives the user a simple way to go back to the beginning, and it allows the screenreader to read and recognize the logo.
+
+##Content
+When the user tabs to the image it is recognized as both an image and a link. It reads the name of the image out loud. A problem with this is that it doesn't really give the user feedback on what the image actually is. Providing the images with the alt attribute you can give the user information on the image.
+
+
 
 
 
