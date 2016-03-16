@@ -9,4 +9,10 @@ It is important to create a fallback for the users that visit your websites on t
 [Link to demo](https://melvinr.github.io/Browser%20Technologies/Week%202/Feature%201/index.html)
 
 ###Srcset
+Srcset is an exciting attribute brought to us by HTML5.
+It allows us as webdevelopers to enable responsive images. If for example you want to show a separate image, based on the resolution the user's device has. Srcset is a great way to do this. But there is a problem, browsers like IE and Opera Mini for example don't support it.
 
+####Fallback
+Since IE doesn't support it, and a lot of people still use IE, it's important to create a fallback. The easiest fallback of all is to define a basic image using the src attribute in the same img tag.
+
+[Link to demo](https://melvinr.github.io/Browser%20Technologies/Week%202/Feature%202/index.html)
