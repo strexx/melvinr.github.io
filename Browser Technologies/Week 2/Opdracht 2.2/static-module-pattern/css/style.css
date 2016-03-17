@@ -114,19 +114,21 @@ main img {
 }
 
 #search {
+    margin-top: 1em;
     height: 30px;
-    border: none;
+    border: 1px solid white;
     border-radius: 0.2em;
 }
 
 #submit-btn, #location-btn {
+    margin-top: 1em;
     width: 30%;
     background: #3c89c3;
     border: 1px solid grey;
     border-radius: 0.2em;
     height: 30px;
     color: white;
-    font-size: 01em;
+    font-size: 1em;
 }
 
 #home img {
