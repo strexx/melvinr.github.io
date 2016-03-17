@@ -113,6 +113,22 @@ main img {
     max-width: 80em;
 }
 
+#search {
+    height: 30px;
+    border: none;
+    border-radius: 0.2em;
+}
+
+#submit-btn, #location-btn {
+    width: 30%;
+    background: #3c89c3;
+    border: 1px solid grey;
+    border-radius: 0.2em;
+    height: 30px;
+    color: white;
+    font-size: 01em;
+}
+
 #home img {
     cursor: pointer;
     box-sizing: border-box;
