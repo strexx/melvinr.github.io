@@ -19,4 +19,3 @@ if (navigator && navigator.geolocation) {
     console.log("Google API" + myLocation);
   }
 }
-

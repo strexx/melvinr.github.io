@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html lang="nl">
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <meta name="theme-color" content="#f6af29">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="">
+    <link rel="stylesheet" href="static-module-pattern/css/style.css">
+    <title>Funda Shaker</title>
+</head>
+
+<body>
+    <header>
+        <img src="static-module-pattern/images/logo-funda.png" alt="logo" id="logo-funda">
+        <h1>Dream Shaker</h1>
+    </header>
+
+    <main>
+        <div id="top-wrapper">
+            <h1>Dream Shaker</h1>
+            <button id="shakeBtn">Shake!</button>
+        </div>
+        
+        <section id="loader" class="inactive">
+            <img src="static-module-pattern/images/fundashake-mockup.png" id="shake-logo">
+        </section>
+
+        <section id="home" data-route="home" class="togglesection growFade">
+            <h2 data-bind="Adres">Welkom bij de funda Dream Shaker!</h2>
+            <a id="detail-link" href="#myhouse" class="inactive"><img src="" data-bind="FotoLargest" id="houseImage"></img>
+            </a>
+            <p data-bind="moreinfo">Omdat het soms overweldigend kan zijn om mooie huizen te vinden in de buurt, willen wij je helpen. Wij hebben met jouw toestemming je locatie gepakt en op basis hiervan zullen we jou mooie huizen laten zien.</p>
+            <div data-bind="Prijs">
+                <p data-bind="Koopprijs">Het enige wat jij nu hoeft te doen is je telefoon te schudden, of hierboven op "Shake!" te drukken!</p>
+            </div>
+            <nav id="searchbar">
+                <input type="text" id="search" placeholder="Zoek naar een stad">
+                <button id="submit-btn" type="submit">Shake!</button>
+                <button id="location-btn" class="inactive">Pak mijn locatie</button>
+            </nav>
+        </section>
+
+        <section id="myhouse" data-route="myhouse" class="togglesection fadeIn inactive">
+            <div id="namewrapper">
+                <h1 id="obj-address">Welkom bij de funda Dream Shaker!</h1>
+                <span data-bind="Postcode"></span>
+            </div>
+            <img src="" data-bind="HoofdFotoSecure" id="houseImage"></img>
+            <div id="detailInfoWrapper">
+                <p data-bind="Ligging"></p>
+                <p data-bind="AantalKamers" class="grey"></p>
+                <div data-bind="Prijs">
+                    <p data-bind="Koopprijs"></p>
+                </div>
+                <p data-bind="AangebodenSindsTekst" class="grey"></p>
+                <p data-bind="AantalSlaapkamers"></p>
+                <p data-bind="Bouwjaar"></p>
+            </div>
+            
+            <h3>Volledige omschrijving</h3>
+            <p data-bind="VolledigeOmschrijving"></p>
+        </section>
+    </main>
+</body>
+
+<script src="static-module-pattern/js/lib/aja.min.js"></script>
+<script src="static-module-pattern/js/lib/routie.min.js"></script>
+<script src="static-module-pattern/js/lib/transparency.min.js"></script>
+<script src="static-module-pattern/js/lib/shake.js"></script>
+<script src="static-module-pattern/js/scripts/fundaData.js"></script>
+<script src="static-module-pattern/js/scripts/fundaRoutes.js"></script>
+<script src="static-module-pattern/js/scripts/fundaUX.js"></script>
+<script src="static-module-pattern/js/scripts/fundaPage.js"></script>
+<script src="static-module-pattern/js/scripts/fundaLauncher.js"></script>
+
+</html>

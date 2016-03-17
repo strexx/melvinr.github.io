@@ -41,3 +41,7 @@ Since HTML 5 it is possible to get the current geolocation without having to use
 There are multiple ways in which you can create a fallback, all based on what you or the user needs. Let's say your websites shows results of bargains based on your geolocation. Chances are your website has a lot more content, so instead of showing content based on their location, show general content when geolocation is no option.
 
 Another option is to use the Google AJAX API to get the user's geolocation if HTML 5's geolocation is not supported. This fallback checks for navigator, which indicates geolocation support or not. If it's there, get the user's location using HTML 5. Otherwise, use google's api.
+
+[Link to demo](https://melvinr.github.io/Browser%20Technologies/Week%202/Feature%205/index.html)
+
+Source: http://marcgrabanski.com/html5-geolocation-fallback-google-ajax-api/
