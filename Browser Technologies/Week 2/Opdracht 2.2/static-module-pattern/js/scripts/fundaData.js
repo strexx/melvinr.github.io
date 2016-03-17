@@ -7,7 +7,20 @@ fShaker.api = (function () {
     var locationButton = document.getElementById('location-btn');
     var city;
 
+    //check if the browser supports html geolocation,
+    //if it does, show the button with which they can get their location
+    function geoCheck() {
+        if (navigator.geolocation) {
+            locationButton.classList.remove('inactive');
+            
+        }
+    }
+    
     //Get the input when input has been used for searching
+    inputButton.addEventListener('click', function () {
+        fShaker.api.getInput();
+    });
+    
     function getInput() {
         city = inputField.value;
         console.log(city);
@@ -15,17 +28,6 @@ fShaker.api = (function () {
         fShaker.api.getData();
     };
 
-    inputButton.addEventListener('click', function () {
-        fShaker.api.getInput();
-    });
-
-    
-    function geoCheck() {
-        if (navigator.geolocation) {
-            locationButton.classList.remove('inactive');
-            
-        }
-    }
     
     locationButton.addEventListener('click', function () {
         fShaker.api.getLocation();
@@ -38,7 +40,6 @@ fShaker.api = (function () {
     
     //Get latitude and longitude and through OSM api request get the name of the city
     //will only be available if browser supports geolocation
-
     function getLocation() {
             navigator.geolocation.getCurrentPosition(
                 displayPosition,
@@ -97,7 +98,9 @@ fShaker.api = (function () {
                 localStorage.setItem('houses', JSON.stringify(_data))
                 console.log(_fullAPIUrl)
                     //Execute routes to check for current hash
+                fShaker.page.getObject();
                 fShaker.routes.init()
+                
             })
             .on('error', () => {
                 alert('Data request failed')
