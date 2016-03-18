@@ -1,4 +1,4 @@
-#Opdracht 2.2 - Funda Shaker Core Functionality
+#Exercise 2.2 - Funda Shaker Core Functionality
 ##Geolocation
 One of the most important functionalities of the Funda Shaker app is geolocation. It gets the user's location (the city he or she is in), and shows houses available in that city. The problem is that there are browsers, like IE 8 and Opera Mini (they keep coming back don't they), that don't support HTML geolocation. For these users the application is completely useless.
 
