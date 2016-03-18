@@ -45,3 +45,18 @@ Another option is to use the Google AJAX API to get the user's geolocation if HT
 [Link to demo](https://melvinr.github.io/Browser%20Technologies/Week%202/Feature%205/index.html)
 
 Source: http://marcgrabanski.com/html5-geolocation-fallback-google-ajax-api/
+
+
+###Feature 6: classList
+classList is a powerful way to manipulate classes that are present on HTML elements. Sometimes you have to change the appearance of an element, a great way to do this is to add or remove styled classes from an element with JavaScript. The problem with classList is that not every browser supports it. IE 9 and down don't support it at all, and IE 10 and up have poor support for it. To make sure the functionality remains intact, you have to create either a fallback for classList, or use another method to do this.
+
+####Fallback
+One way to make sure every user will get to see the changes, is to use className instead of classList. This is supported by every browser and essentially does the same as classList.
+
+You could also write a function that checks whether or not a browser supports classList, if it does, it will use it to remove/add a class. If it doesn't, it will refer back to className and manually replaces the class of an element.
+
+[Link to demo](https://melvinr.github.io/Browser%20Technologies/Week%202/Feature%206/index.html)
+
+Sources:
+-http://stackoverflow.com/questions/6746230/optimizing-a-javascript-function-with-a-fallback-if-classlist-is-not-supported
+- http://jaketrent.com/post/addremove-classes-raw-javascript/
