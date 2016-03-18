@@ -58,5 +58,5 @@ You could also write a function that checks whether or not a browser supports cl
 [Link to demo](https://melvinr.github.io/Browser%20Technologies/Week%202/Feature%206/index.html)
 
 Sources:
--http://stackoverflow.com/questions/6746230/optimizing-a-javascript-function-with-a-fallback-if-classlist-is-not-supported
+- http://stackoverflow.com/questions/6746230/optimizing-a-javascript-function-with-a-fallback-if-classlist-is-not-supported
 - http://jaketrent.com/post/addremove-classes-raw-javascript/
