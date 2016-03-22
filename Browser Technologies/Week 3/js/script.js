@@ -29,7 +29,7 @@ fn.notification = (function () {
                 if (permission === 'granted') {
                     var bla;
                     var notification = new Notification("hoi");
-                    alert("hoi" + notification);
+                    alert("hoi");
                 }
             })
         }
