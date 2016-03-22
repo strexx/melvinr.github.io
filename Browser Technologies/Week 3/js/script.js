@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 fn.launcher = (function () {
     var init = function () {
-                fn.notification.init();
+        fn.notification.init();
     }
 
     return {
@@ -26,9 +26,15 @@ fn.notification = (function () {
             alert("hoi");
         } else {
             Notification.requestPermission(function (permission) {
+                console.log(permission);
                 if (permission === 'granted') {
-                    alert("I'm working");
-//                    var notification = new Notification("hoi");
+                    var bla;
+                    var notification = new Notification("hoi");
+                    if (notification !== undefined && notification !== '') {
+                        alert("I exist");
+                    } else {
+                        alert("I'm a ghost");
+                    }
                 }
             })
         }
