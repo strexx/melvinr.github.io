@@ -26,9 +26,8 @@ fn.notification = (function () {
             alert("hoi");
         } else {
             Notification.requestPermission(function (permission) {
-                console.log(permission);
                 if (permission === 'granted') {
-                    var bla;
+                    alert('granted');
                     var notification = new Notification("hoi");
                     if (notification !== undefined && notification !== '') {
                         alert("I exist");
