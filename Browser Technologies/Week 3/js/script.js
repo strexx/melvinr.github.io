@@ -28,8 +28,8 @@ fn.notification = (function () {
             Notification.requestPermission(function (permission) {
                 if (permission === 'granted') {
                     var bla;
-                    var notification = new Notification("hoi");
                     alert("hoi");
+                    var notification = new Notification("hoi");
                 }
             })
         }
