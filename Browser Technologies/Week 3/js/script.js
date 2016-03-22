@@ -29,11 +29,12 @@ fn.notification = (function () {
                 if (permission === 'granted') {
                     console.log(permission);
                     var notification = new Notification("hoi") || alert("hoi");
-                    Notification.onerror = function() {
-                        alert(Error);
-                    }
+
                 }
             })
+            Notification.onerror = function () {
+                alert("hoi");
+            }
         }
     }
 
