@@ -15,11 +15,13 @@ function isNewNotificationSupported() {
         throw new Error('');
         alert("test 1");
     try {
+        alert("test 2");
         new Notification('');
+        alert("test 3");
     } catch (e) {
         if (e.name == 'TypeError')
+            alert('something went wrong');
             return false;
-        alert("test2");
     }
     return true;
 }
