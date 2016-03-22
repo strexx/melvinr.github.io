@@ -3,7 +3,6 @@ var fn = fn || {};
 
 
 document.addEventListener('DOMContentLoaded', function () {
-//    fn.launcher.init();
     askIt();
 });
 
@@ -20,7 +19,7 @@ function isNewNotificationSupported() {
         alert("test 3");
     } catch (e) {
         if (e.name == 'TypeError')
-            alert('something went wrong');
+            fn.launcher.changeTeam();
             return false;
     }
     return true;
@@ -32,13 +31,22 @@ function askIt() {
     }
 }
 
+
+
 fn.launcher = (function () {
     var init = function () {
         fn.notification.init();
     }
 
+    var leicester = document.getElementById('leicester');
+    
+    var changeTeam = function() {
+        leicester.innerHTML = "Manchester United";
+    }
+    
     return {
-        init: init
+        init: init,
+        changeTeam: changeTeam
     }
 })();
 
