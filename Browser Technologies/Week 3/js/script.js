@@ -27,9 +27,8 @@ fn.notification = (function () {
         } else {
             Notification.requestPermission(function (permission) {
                 if (permission === 'granted') {
-                    alert('granted');
                     var notification = new Notification("hoi");
-                    if (notification) {
+                    if (notification.error) {
                         alert("I exist");
                     } else {
                         alert("I'm a ghost");
