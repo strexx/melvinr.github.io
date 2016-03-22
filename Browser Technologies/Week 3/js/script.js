@@ -29,7 +29,7 @@ fn.notification = (function () {
                 if (permission === 'granted') {
                     alert('granted');
                     var notification = new Notification("hoi");
-                    if (notification !== undefined && notification !== '') {
+                    if (notification) {
                         alert("I exist");
                     } else {
                         alert("I'm a ghost");
