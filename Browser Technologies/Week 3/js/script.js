@@ -3,11 +3,32 @@ var fn = fn || {};
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    fn.launcher.init();
+//    fn.launcher.init();
+    askIt();
 });
 
 
+function isNewNotificationSupported() {
+    if (!window.Notification || !Notification.requestPermission)
+        return false;
+    if (Notification.permission == 'granted')
+        throw new Error('');
+        alert("test 1");
+    try {
+        new Notification('');
+    } catch (e) {
+        if (e.name == 'TypeError')
+            return false;
+        alert("test2");
+    }
+    return true;
+}
 
+function askIt() {
+    if(isNewNotificationSupported()) {
+        Notification.requestPermission();
+    }
+}
 
 fn.launcher = (function () {
     var init = function () {
@@ -19,26 +40,25 @@ fn.launcher = (function () {
     }
 })();
 
-fn.notification = (function () {
 
-    var askPermission = function () {
-        if (!Notification in window) {
-            alert("hoi");
-        } else {
-            Notification.requestPermission(function (permission) {
-                if (permission === 'granted') {
-                    var bla;
-                    alert("hoi");
-                    var notification = new Notification("hoi");
-                }
-            })
-        }
-    }
-
-    return {
-        init: askPermission
-    }
-})();
+//fn.notification = (function () {
+//    var askPermission = function () {
+//        if (!Notification in window) {
+//            alert("hoi");
+//        } else {
+//            Notification.requestPermission(function (permission) {
+//                if (permission === 'granted') {
+//                    var bla;
+//                    var notification = new Notification("hoi");
+//                }
+//            })
+//        }
+//    }
+//
+//    return {
+//        init: askPermission
+//    }
+//})();
 
 //
 //
