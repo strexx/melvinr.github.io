@@ -7,12 +7,22 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+function askIt() {
+    if (window.Notification && Notification.permission == 'granted') {
+        var notification = new Notification("hoi");
+    } else if (isNewNotificationSupported()) {
+        Notification.requestPermission();
+    }
+}
+
+
 function isNewNotificationSupported() {
     if (!window.Notification || !Notification.requestPermission)
         return false;
     if (Notification.permission == 'granted')
         throw new Error('');
-        alert("test 1");
+    alert("test 1");
     try {
         alert("test 2");
         new Notification('');
@@ -20,17 +30,10 @@ function isNewNotificationSupported() {
     } catch (e) {
         if (e.name == 'TypeError')
             fn.launcher.changeTeam();
-            return false;
+        return false;
     }
     return true;
 }
-
-function askIt() {
-    if(isNewNotificationSupported()) {
-        Notification.requestPermission();
-    }
-}
-
 
 
 fn.launcher = (function () {
@@ -39,18 +42,18 @@ fn.launcher = (function () {
     }
 
     var leicester = document.getElementById('leicester');
-    
-    var changeTeam = function() {
+
+    var changeTeam = function () {
         leicester.innerHTML = "Manchester United";
     }
-    
+
     return {
         init: init,
         changeTeam: changeTeam
     }
 })();
 
-
+//
 //fn.notification = (function () {
 //    var askPermission = function () {
 //        if (!Notification in window) {
