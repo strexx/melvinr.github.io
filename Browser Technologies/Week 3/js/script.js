@@ -27,6 +27,7 @@ fn.notification = (function () {
         } else {
             Notification.requestPermission(function (permission) {
                 alert("Hallo");
+                alert(permission);
                 if (permission === 'granted') {
                     var notification = new Notification("hoi");
                 }
