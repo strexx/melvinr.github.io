@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 fn.launcher = (function () {
     var init = function () {
-        fn.notification.init();
+                fn.notification.init();
     }
 
     return {
@@ -26,15 +26,12 @@ fn.notification = (function () {
             alert("hoi");
         } else {
             Notification.requestPermission(function (permission) {
+                console.log(permission);
                 if (permission === 'granted') {
-                    console.log(permission);
-                    var notification = new Notification("hoi") || alert("hoi");
-
+                    var notification = new Notification("hoi");
+                    alert(notification);
                 }
             })
-            Notification.onerror = function () {
-                alert("hoi");
-            }
         }
     }
 
