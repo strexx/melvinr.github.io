@@ -2,8 +2,14 @@ var fn = fn || {};
 'use strict';
 
 
+var results = document.getElementById('results');
+var cluboption = document.getElementById('cluboption');
+
 document.addEventListener('DOMContentLoaded', function () {
+    results.classList.add('inactive');
+    cluboption.classList.remove('inactive');
     askIt();
+    
 });
 
 
@@ -16,20 +22,19 @@ function askIt() {
     }
 }
 
-
 function isNewNotificationSupported() {
     if (!window.Notification || !Notification.requestPermission)
         return false;
     if (Notification.permission == 'granted')
         throw new Error('');
-    alert("test 1");
+        alert("test 1");
     try {
         alert("test 2");
         new Notification('');
         alert("test 3");
     } catch (e) {
         if (e.name == 'TypeError')
-            fn.launcher.changeTeam();
+            fn.launcher.showSection();
         return false;
     }
     return true;
@@ -41,15 +46,15 @@ fn.launcher = (function () {
         fn.notification.init();
     }
 
-    var leicester = document.getElementById('leicester');
+    var pushNotification = document.getElementById('push-notification');
 
-    var changeTeam = function () {
-        leicester.innerHTML = "Manchester United";
+    var showSection = function () {
+        pushNotification.classList.remove('inactive');
     }
 
     return {
         init: init,
-        changeTeam: changeTeam
+        showSection: showSection
     }
 })();
 
