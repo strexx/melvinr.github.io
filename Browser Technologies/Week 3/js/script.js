@@ -75,6 +75,7 @@ function isNewNotificationSupported() {
     } catch (e) {
         if (e.name == 'TypeError')
             fn.notification.showSection();
+        alert('Wrong!');
         return false;
     }
     
