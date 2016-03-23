@@ -27,13 +27,6 @@ fn.launcher = (function () {
     var init = function () {
 
         fn.loop.loopFunc();
-
-        //        if (docBody.className !== 'nf-supported') {
-        //            fn.notification.showSection();
-        //        } else {
-        //            fn.notification.webNotification();
-        //            console.log('Melvin');
-        //        }
     }
 
     return {
@@ -48,11 +41,12 @@ fn.loop = (function () {
 
     function loopFunc() {
 
-
+        var pushNotification = document.getElementById('push-notification');
         cluboption.addEventListener('click', function (e) {
             var result = e.target.attributes['data-result'].value;
             var matchup = e.target.attributes['data-match'].value;
             if (docBody.className !== 'nf-supported') {
+                pushNotification.classList.remove('inactive');
                 fn.notification.showSection(result, matchup);
             } else {
                 fn.notification.webNotification(result, matchup);
@@ -68,19 +62,19 @@ fn.loop = (function () {
 })();
 
 fn.notification = (function () {
-    var pushNotification = document.getElementById('push-notification');
-
     function showSection(result, matchup) {
-        pushNotification.classList.remove('inactive');
         notifTitle.innerHTML = matchup;
         notifContent.innerHTML = "Score: " + result;
-        
+
     };
 
     function webNotification(result, matchup) {
         if (window.Notification && Notification.permission == 'granted') {
             console.log(notifContent);
-            var notification = new Notification(matchup);
+            var notification = new Notification(matchup, {
+                icon: 'http://i.ebayimg.com/00/s/ODg2WDg4Ng==/z/X-8AAOxyNmZTj3tF/$_35.JPG',
+                body: result
+            });
         } else if (isNewNotificationSupported()) {
             Notification.requestPermission();
         }
@@ -93,6 +87,15 @@ fn.notification = (function () {
 
 })();
 
+function checkButton() {
+    var pushNotification = document.getElementById('push-notification');
+    var closeButton = document.getElementById('confirm');
+    closeButton.addEventListener('click', function () {
+        pushNotification.classList.add('inactive');
+    })
+}
+
+checkButton();
 
 //Thanks to Joost Faber for helping me rewrite this for progressive enhancement.
 //Source: https://developers.google.com/web/updates/2015/05/notifying-you-of-changes-to-notifications
@@ -116,27 +119,4 @@ function isNewNotificationSupported() {
     }
 
     return true;
-}
-
-//
-//fn.launcher = (function () {
-//    var init = function () {
-//        fn.notification.init();
-//    }
-//
-//    var pushNotification = document.getElementById('push-notification');
-//
-//
-//
-//    return {
-//        init: init,
-//        showSection: showSection
-//    }
-//})();
-
-
-
-if ('alert' in window) {
-    results.classList.add('inactive');
-    cluboption.classList.remove('inactive');
 }
