@@ -13,7 +13,6 @@ var notifContent = document.getElementById('notification-content');
 
 document.addEventListener('DOMContentLoaded', function () {
     results.classList.add('inactive');
-    cluboption.classList.remove('inactive');
 
     if (isNewNotificationSupported()) {
         docBody.classList.add('nf-supported');
@@ -71,6 +70,7 @@ fn.notification = (function () {
     var pushNotification = document.getElementById('push-notification');
 
     function showSection(result, matchup) {
+        cluboption.classList.remove('inactive');
         pushNotification.classList.remove('inactive');
         notifTitle.innerHTML = matchup;
         notifContent.innerHTML = "Score: " + result;
@@ -138,5 +138,5 @@ function isNewNotificationSupported() {
 
 if ('alert' in window) {
     results.classList.add('inactive');
-    cluboption.classList.remove('inactive');
+//    cluboption.classList.remove('inactive');
 }
