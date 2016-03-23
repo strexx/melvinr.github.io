@@ -54,7 +54,6 @@ fn.loop = (function () {
             var matchup = e.target.attributes['data-match'].value;
             if (docBody.className !== 'nf-supported') {
                 fn.notification.showSection(result, matchup);
-                pushNotification.classList.remove('inactive');
             } else {
                 fn.notification.webNotification(result, matchup);
                 console.log('Melvin');
@@ -72,6 +71,7 @@ fn.notification = (function () {
     var pushNotification = document.getElementById('push-notification');
 
     function showSection(result, matchup) {
+        pushNotification.classList.remove('inactive');
         notifTitle.innerHTML = matchup;
         notifContent.innerHTML = "Score: " + result;
         
@@ -110,7 +110,7 @@ function isNewNotificationSupported() {
         new Notification('...');
     } catch (e) {
         if (e.name == 'TypeError')
-            fn.notification.showSection();
+            fn.loop.loopFunc();
         alert('Wrong!');
         return false;
     }
@@ -138,5 +138,5 @@ function isNewNotificationSupported() {
 
 if ('alert' in window) {
     results.classList.add('inactive');
-//    cluboption.classList.remove('inactive');
+    cluboption.classList.remove('inactive');
 }
