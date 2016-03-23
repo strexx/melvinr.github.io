@@ -13,6 +13,7 @@ var notifContent = document.getElementById('notification-content');
 
 document.addEventListener('DOMContentLoaded', function () {
     results.classList.add('inactive');
+    cluboption.classList.remove('inactive');
 
     if (isNewNotificationSupported()) {
         docBody.classList.add('nf-supported');
@@ -53,6 +54,7 @@ fn.loop = (function () {
             var matchup = e.target.attributes['data-match'].value;
             if (docBody.className !== 'nf-supported') {
                 fn.notification.showSection(result, matchup);
+                pushNotification.classList.remove('inactive');
             } else {
                 fn.notification.webNotification(result, matchup);
                 console.log('Melvin');
@@ -70,8 +72,6 @@ fn.notification = (function () {
     var pushNotification = document.getElementById('push-notification');
 
     function showSection(result, matchup) {
-        cluboption.classList.remove('inactive');
-        pushNotification.classList.remove('inactive');
         notifTitle.innerHTML = matchup;
         notifContent.innerHTML = "Score: " + result;
         
