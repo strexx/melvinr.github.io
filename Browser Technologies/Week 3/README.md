@@ -11,7 +11,7 @@ To build a demo for this use case, I followed the principle of **progressive enh
 
 Then I started by adding some CSS to enhance the website and give it a more pleasant look. After this I started working on its enhanced feature: notifications. Because the notifications API is not well supported on mobile devices, the application starts out by checking whether or not it's supported. If it is, it will add a class to the body. Then it will check what kind of notification it has to send. The first notification, which will be used if the class isn't present on the body, is a hidden section which will be made visible. This section will show the matchup and the result from that match. As seen in the picture below;
 
-![CanIUse](readme-images/section-nf.png =10x)
+![CanIUse](readme-images/section-nf.png)
 
 If the class is present on the body, it will use the notification api. Sending a web notification to the user, providing information about the matchup as well as the result.
 The notification (either one) will be sent when the user has pressed on one of the football clubs.
