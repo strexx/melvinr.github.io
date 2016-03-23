@@ -9,7 +9,9 @@ var leicesterTwo = document.getElementById('leicestertwo');
 var docBody = document.querySelector('body');
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log(isNewNotificationSupported());
+    results.classList.add('inactive');
+    cluboption.classList.remove('inactive');
+
     if (isNewNotificationSupported()) {
         docBody.classList.add('nf-supported');
         fn.launcher.init();
