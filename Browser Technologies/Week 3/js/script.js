@@ -114,7 +114,6 @@ function isNewNotificationSupported() {
     } catch (e) {
         if (e.name == 'TypeError')
             fn.loop.loopFunc();
-        alert('Wrong!');
         return false;
     }
 
