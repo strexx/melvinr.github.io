@@ -1,4 +1,7 @@
 #Final Assignment - Browser Technologies
+[Link to live demo 2](melvinr.github.io/Browser Technologies/Week 3-versie 2/index.html)
+
+
 ##Enhancement: Notifications API
 The Notifications API is a great way to keep your user up-to-date on certain subjects, by sending them a web notification. For instance when his or her favorite football club has scored.
 
