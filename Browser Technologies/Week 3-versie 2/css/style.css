@@ -1,0 +1,196 @@
+body {
+    background-color: #f1f1f1;
+    margin: 0;
+}
+
+main {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 1em;
+    font-family: helvetica;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+}
+
+section {
+    /*    padding: 1em;*/
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+    box-shadow: 0 4px 4px -2px #232323;
+    -moz-box-shadow: 0 4px 4px -2px #232323;
+    -webkit-box-shadow: 0 2px 4px -2px #232323;
+}
+
+article {
+    margin: auto;
+    padding: 1em;
+}
+
+header {
+    background: #434343;
+}
+
+h1 {
+    margin: 0;
+    color: white;
+    font-family: helvetica;
+    padding: 0.3em;
+    padding-left: 0.5em;
+    color: #f6af29;
+}
+
+h2 {
+    background-color: #418fb7;
+    font-size: 1.5em;
+    font-weight: 400;
+    color: white;
+    padding: 0.2em 0.4em;
+    margin: 0;
+}
+
+#matchup {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.club-logo {
+    width: 3em;
+}
+
+#notif-permission {
+    padding: 0;
+}
+
+.allowed {
+    background: #18a556;
+}
+
+.allowed:hover {
+    background: #1BB65F;
+}
+
+.allowed:active {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    background: #1BB65F;
+    
+}
+
+.disallowed {
+    background: #df9f9f;
+}
+
+[role=button] {
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    line-height: 4em;
+    font-size: 1.1em;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    box-shadow: 0 4px 4px -2px #232323;
+    -moz-box-shadow: 0 4px 4px -2px #232323;
+    -webkit-box-shadow: 0 2px 4px -2px #232323;
+}
+
+/*
+[role=button]:hover {
+    background: #1BB65F;
+}
+*/
+
+/*
+[role=button]:active {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    background: #1BB65F;
+}
+*/
+
+#cluboption {
+    /*    position: relative;*/
+    /*    width: 100%;*/
+}
+
+#push-notification {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flexr;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: fixed;
+    top: 53%;
+    left: 50%;
+    padding: 1em;
+    max-width: 80vw;
+    max-height: 80vh;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #f1f1f1;
+    z-index: 100;
+    box-shadow: 0 0 0 50vmax rgba(0, 0, 0, .9);
+}
+
+#push-notification h2 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#push-notification p {
+    font-size: 1.3em;
+}
+
+#push-notification img {
+    height: 12em;
+    box-sizing: border-box;
+}
+
+.inactive {
+    display: none;
+    visibility: hidden;
+}
+
+.active {
+    display: block;
+}
