@@ -1,5 +1,5 @@
 #Final Assignment - Browser Technologies
-[Link to live demo 2](melvinr.github.io/Browser Technologies/Week 3-versie 2/index.html)
+[Link to live demo 2](http://melvinr.github.io/Browser%20Technologies/Week%203-versie%202/index.html)
 
 
 ##Enhancement: Notifications API
