@@ -5,10 +5,6 @@
 #include <EIoTCloudRestApiConfig.h>
 #include <ThingSpeak.h>
 #include <ESP8266WiFi.h>
-#include <WiFiClient.h>
-#include <WiFiClientSecure.h>
-#include <WiFiServer.h>
-#include <WiFiUdp.h>
 
 
 //Pins and leds with values
