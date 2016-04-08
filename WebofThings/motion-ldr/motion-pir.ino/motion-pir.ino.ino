@@ -8,9 +8,9 @@
 
 
 //Pins and leds with values
-int pinPir = D0;
-int pirState = LOW;
-int val = 0;
+const int pinPir = D0; // digital  pin
+int pirState = LOW; // status of motion
+int val = 0; // sensor value
 
 
 //Define client, use your wifi or hotspot's SSID and password
