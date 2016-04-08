@@ -1,6 +1,7 @@
 //Minor Everything Web
 //Course: Web of Things
 
+// Libraries
 #include <EIoTCloudRestApi.h>
 #include <EIoTCloudRestApiConfig.h>
 #include <ThingSpeak.h>
